@@ -1,0 +1,81 @@
+.products-header-container, .page-intro, .about-content {
+    font-family: var(--base-font);
+    margin: 3rem auto;
+    width:75%;
+    text-align: center;
+    line-height: 1.5rem;
+}
+
+.product-container  {
+    padding-top: 3rem;
+display: flex;
+}
+
+.product-underlay{
+    position: absolute;
+	width: 100%;
+	z-index: -1;
+}
+.PhotoCards {
+   z-index: 1;
+}
+
+.page-intro-container {
+    width: 90%;
+    padding-top: 3rem;
+    display:flex;
+    margin: 0 auto;
+}
+
+.page-intro-content {
+    width: 50%;
+    font-family: var(--base-font);
+    margin: 0 auto;
+    text-align: center;
+    line-height: 1.5rem;
+}
+
+.page-intro-content p {
+    margin: 2rem auto;
+
+}
+
+.about-content {
+    padding: 3rem;
+    color: var(--white);
+    width:100%;
+    background-color: var(--blue);
+}
+
+.about-content p {
+    font-family: var(--base-font);
+    color: var(--white);
+    margin: 2rem auto;
+    width:75%;
+    text-align: center;
+    line-height: 1.5rem;
+    background-color: var(--blue);
+}
+
+.contracts-section {
+    width: 75%;
+    margin-top: 3rem;
+    font-family: var(--base-font);
+    margin: 3rem auto;
+    text-align: center;
+    line-height: 1.5rem;
+}
+
+.contracts-section p {
+    margin: 2rem auto;
+}
+
+
+.card {
+    width: 500px;
+    max-width: 100%;
+  }
+
+  @media screen and (width > 960px) and (width < 1172px) {
+
+  }

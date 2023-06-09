@@ -1,73 +1,114 @@
 import React from "react";
-import { NavLink } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 
 import "./HeaderBar.css";
 import logo from "./logo.png";
 
 export default function HeaderBar() {
-	const [click, setClick] = React.useState(false);
+  const [dropdownOpen, setDropdownOpen] = React.useState(false);
+  const [click, setClick] = React.useState(false);
 
-	const handleClick = () => setClick(!click);
-	const Close = () => setClick(false);
+  const toggleDropdown = () => {
+    if (window.innerWidth > 768) {
+      setDropdownOpen(!dropdownOpen);
+    }
+  };
 
-	return (
-		<div>
-			<div className={click ? "main-container" : ""} onClick={() => Close()} />
-			<nav className="navbar" onClick={(e) => e.stopPropagation()}>
-				<div className="nav-container">
-					<NavLink exact to="/" className="nav-logo">				
-					<img src={logo} alt="Parsons floors logo" className="nav-bar-logo" href="/" />
-						Parsons Floors
-						<i className="fa fa-code"></i>
-					</NavLink>
-					<ul className={click ? "nav-menu active" : "nav-menu"}>
-						<li className="nav-item">
-							<a
-								href="/"
-								activeclassname="active"
-								className="nav-links"
-								onClick={click ? handleClick : null}
-							>
-								Home
-							</a>
-						</li>
-						<li className="nav-item">
-							<a
-								href="/about"
-								activeclassname="active"
-								className="nav-links"
-								onClick={click ? handleClick : null}
-							>
-								About
-							</a>
-						</li>
-						<li className="nav-item">
-							<a
-								href="/blog"
-								activeclassname="active"
-								className="nav-links"
-								onClick={click ? handleClick : null}
-							>
-								Blog
-							</a>
-						</li>
-						<li className="nav-item">
-							<a
-								href="/contact.js"
-								activeclassname="active"
-								className="nav-links"
-								onClick={click ? handleClick : null}
-							>
-								Contact Us
-							</a>
-						</li>
-					</ul>
-					
-					<div className="nav-icon" onClick={handleClick}>
-						<i className={click ? "fa fa-times" : "fa fa-bars"}></i>
-					</div>
-				</div>
-			</nav>
-		</div>
-	);
+  const handleClick = () => {
+    setClick(!click);
+  };
+
+  return (
+    <div>
+      <nav className="navbar" onClick={(e) => e.stopPropagation()}>
+        <div className="nav-container">
+          <NavLink exact to="/" className="nav-logo">
+            <img
+              src={logo}
+              alt="Parsons floors logo"
+              className="nav-bar-logo"
+              to="/"
+            />
+            Parsons Floors
+          </NavLink>
+          <ul className={click ? "nav-menu active" : "nav-menu"}>
+            <li className="nav-item">
+              <NavLink
+                to="/Products"
+                activeClassName="active"
+                className={`nav-links ${dropdownOpen ? "dropdown-open" : ""}`}
+                onMouseEnter={toggleDropdown}
+                onMouseLeave={toggleDropdown}
+              >
+                Products
+                {dropdownOpen && (
+                  <ul className="dropdown-menu">
+                    <NavLink 
+					to="/Carpet"
+					activeClassName="active"
+					className="products-links"><li className="nav-item">Carpet</li></NavLink>
+                    <NavLink
+					to="/LuxuryVinyl"
+					activeClassName="active"
+					className="products-links"><li className="nav-item">Luxury Vinyl</li></NavLink>
+                    <NavLink
+					to="/VinylTile"
+					activeClassName="active"
+					className="products-links"><li className="nav-item">Vinyl Composite Tile</li></NavLink>
+                  </ul>
+                )}
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                to="/Services"
+                activeClassName="active"
+                className="nav-links"
+              >
+                Services
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                to="/Gallery"
+                activeClassName="active"
+                className="nav-links"
+              >
+                Inspiration
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                to="/About"
+                activeClassName="active"
+                className="nav-links"
+              >
+                About Us
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                to="/Contact"
+                activeClassName="active"
+                className="nav-links"
+              >
+                Contact
+              </NavLink>
+            </li>
+          </ul>
+          <div className="mobile-header">
+            <div className="nav-icon" onClick={handleClick}>
+              <i className={click ? "fa fa-times" : "fa fa-bars"}></i>
+            </div>
+            <div className="address-header">
+              <p className="town-header">Garden City, NY </p>
+              <p className="town-header">
+                <b>(516)484-2323</b>
+              </p>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  );
 }

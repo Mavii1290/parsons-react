@@ -1,0 +1,25 @@
+.products-header-container{
+    font-family: var(--base-font);
+    margin: 3rem auto;
+    width:75%;
+    text-align: center;
+    line-height: 1.5rem;
+}
+
+.product-container  {
+    padding-top: 3rem;
+display: flex;
+}
+
+.product-underlay{
+    position: absolute;
+	width: 100%;
+	z-index: -1;
+}
+.PhotoCards {
+   z-index: 1;
+}
+
+.product-intro {
+    margin: 0 auto;
+}

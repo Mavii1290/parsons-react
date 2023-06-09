@@ -1,0 +1,36 @@
+.product-card {
+    font-family: var(--base-font);
+    text-align: center;
+    margin: 2rem 0;
+    padding-bottom: 5%;
+  }
+  
+  .card {
+    margin:5rem;
+  }
+  
+  .card-img {
+    
+  }
+  .card-group .card .card-title {
+    font-family: var(--base-font);
+    font-weight: bold;
+    color: var(--black);
+  }
+  
+  .card-group .card .card-body {
+    color: lightgray;
+ 
+  }
+  
+  .card-group .card .overlay::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+
+  }
+  

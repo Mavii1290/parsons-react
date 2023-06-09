@@ -3,8 +3,15 @@ body{
     max-width: 100%;
 }
 
+p {
+  font-weight: 500;
+}
+
 :root {
   --black: #000000;
   --white: #ffffff;
+  --blue: #283878;
+  --dark-blue: #202e64;
+  --red: #973032;
   --base-font: 'Montserrat', sans-serif;;
 }
