@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/iframe-has-title */
 import React, { useState } from "react";
 import HeaderBar from "../HeaderBar/HeaderBar";
 import Footer from "../Footer/Footer";
@@ -269,14 +270,29 @@ export default function Contact() {
 							</form>
 						</div>
 					</div>
-				</div><Footer />
+				</div>
+				<div className="google-maps" style={{
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  height: "100vh"
+}}>
+					<iframe
+						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.454334857614!2d-73.61089148887152!3d40.73002727127161!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2862a6c488c19%3A0x4f5add3384fc980d!2sParsons%20Floors!5e0!3m2!1sen!2sus!4v1686357548071!5m2!1sen!2sus"
+						width="600"
+						height="450"
+						allowfullscreen=""
+						loading="lazy"
+						referrerpolicy="no-referrer-when-downgrade"
+					></iframe>
+				</div>
+				<Footer />
 			</>
 		);
 	} else {
 		return (
 			<div className="thankyou_details">
 				<div className="alert alert-success mt-3">Mail sent successfully.</div>
-				
 			</div>
 		);
 	}

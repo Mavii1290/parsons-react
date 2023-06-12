@@ -42,9 +42,7 @@
 .company-info-section {
 	display: flex;
 }
-.company-info-section-img {
-    display:;
-}
+
 
 .photo-overlay {
 	position: absolute;
@@ -153,9 +151,18 @@
 	}
 }
 @media screen and (width < 959px) {
-	.photo-overlay-mobile{
-		display: flex;
-		flex-wrap: wrap;
-		width: 100%;
+	.photo-overlay{
+		height: 100%;
+	}
+
+	.company-info-section {
+		flex-direction: column-reverse;
+	}
+	.company-info-image {
+		width:60%;
+	}
+	.company-info {
+		margin: 0 auto;
+		width: 78%;
 	}
 }

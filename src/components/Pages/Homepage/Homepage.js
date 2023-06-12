@@ -103,11 +103,6 @@ export default function Homepage() {
 					alt="tile-n-wood-flooring"
 					className="photo-overlay"
 				/>
-				<img
-					src={homepageDropback}
-					alt="tile-n-wood-flooring"
-					className="photo-overlay-mobile"
-				/>
 				</div>
 				<div className="company-info">
 				<img src={WoodInstall} alt="" className="company-info-image"/>

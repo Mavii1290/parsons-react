@@ -3,6 +3,7 @@ import React from "react";
 import "./Products.css";
 
 import HeaderBar from "../../HeaderBar/HeaderBar";
+import Footer from "../../Footer/Footer";
 
 export default function Carpet() {
 	return (
@@ -22,6 +23,7 @@ export default function Carpet() {
 					perfect for enhancing your commercial space!
 				</p>
 			</div>
+			<Footer />
 		</>
 	);
 }
