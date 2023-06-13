@@ -1,8 +1,57 @@
 import React from "react";
+
 import HeaderBar from "../../HeaderBar/HeaderBar";
 import Footer from "../../Footer/Footer";
+import PhotoCards from "../../PhotoCards/PhotoCards";
 
 import "./Products.css";
+
+import ClassIV1000 from "./Assets/ClassIV1000.png";
+import ClassIV1001 from "./Assets/ClassIV1001.png";
+import ClassIV1002 from "./Assets/ClassIV1002.png";
+import ClassIV1003 from "./Assets/ClassIV1003.png";
+import ClassIV1005 from "./Assets/ClassIV1005.png";
+import ClassIV1006 from "./Assets/ClassIV1006.png";
+import ClassIV1008 from "./Assets/ClassIV1008.png";
+
+const data = [
+	{
+		name: "Class IV",
+		src: ClassIV1000,
+		txt: `Planks`,
+	},
+	{
+		name: "Class IV 1",
+		src: ClassIV1001,
+		txt: `Planks`,
+	},
+	{
+		name: "Class IV 2",
+		src: ClassIV1002,
+		txt: `Planks`,
+	},
+	{
+		name: "Class IV 3",
+		src: ClassIV1003,
+		txt: `Planks`,
+	},
+	{
+		name: "Class IV 5",
+		src: ClassIV1005,
+		txt: `Planks`,
+	},
+	{
+		name: "Class IV 6",
+		src: ClassIV1006,
+		txt: `Planks`,
+	},
+	{
+		name: "Class IV 8",
+		src: ClassIV1008,
+		txt: `Planks`,
+	},
+
+];
 
 export default function LuxuryVinyl() {
 	return (
@@ -28,6 +77,9 @@ export default function LuxuryVinyl() {
 					Choosing to install luxury vinyl flooring provides a cost-effective
 					solution to achieve the aesthetic of natural floors.
 				</p>
+			</div>
+			<div className="product-container">
+				<PhotoCards data={data} />
 			</div>
 			<Footer />
 		</>
