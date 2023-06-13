@@ -1,12 +1,27 @@
 .gallery-container {
     margin: 0 auto;
-    width: 75%;
+    width: 65%;
 }
 
-.carousel-item img {
+  .carousel-element img {
+margin: 0 auto;
+  }
+
+  .carousel-element {
     display: flex;
-}
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Optional: Set a specific height for the carousel element */
+  }
+  
+  .carousel-element img {
+    max-width: 80%;
+    max-height: 100%;
+    object-fit: contain; /* Optional: Adjust the object-fit property as per your requirement */
+  }
 
-.carousel-img {
-    padding-top: 20%;
+  @media screen and (width < 992px) {
+   .gallery-container {
+      width: 90%;
+    }
   }

@@ -53,6 +53,11 @@ export default function Products() {
 			<LogoCarousel />
 			<div className="product-container">
 				<img src={whiteWood} alt="White Wood" className="product-underlay" />
+				<img src={whiteWood} alt="White Wood" className="product-underlay-mobile" />
+				<img src={whiteWood} alt="White Wood" className="product-underlay-mobile2" />
+				<img src={whiteWood} alt="White Wood" className="product-underlay-mobile3" />
+				<img src={whiteWood} alt="White Wood" className="product-underlay-mobile4" />
+
 				<PhotoCards data={data} />
 			</div>
 			<Footer />

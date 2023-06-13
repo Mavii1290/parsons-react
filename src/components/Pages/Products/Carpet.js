@@ -5,8 +5,7 @@ import "./Products.css";
 import HeaderBar from "../../HeaderBar/HeaderBar";
 import Footer from "../../Footer/Footer";
 import PhotoCards from "../../PhotoCards/PhotoCards";
-import GalleryCarousel from "../../GalleryCarousel/GalleryCarousel";
-
+import CarpetGallery from "../../GalleryCarousel/CarpetGallery";
 
 import StellaQ1 from "./Assets/StellaQ1.png";
 import StellaQ2 from "./Assets/StellaQ2.png";
@@ -123,7 +122,7 @@ export default function Carpet() {
 				<PhotoCards data={data} />
 			</div>
 			<div className="gallery-container">
-			<GalleryCarousel data={data}/>
+				<CarpetGallery />
 			</div>
 			<Footer />
 		</>
