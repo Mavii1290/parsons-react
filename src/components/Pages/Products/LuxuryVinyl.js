@@ -3,6 +3,7 @@ import React from "react";
 import HeaderBar from "../../HeaderBar/HeaderBar";
 import Footer from "../../Footer/Footer";
 import PhotoCards from "../../PhotoCards/PhotoCards";
+import GalleryCarousel from "../../GalleryCarousel/GalleryCarousel";
 
 import "./Products.css";
 
@@ -50,8 +51,25 @@ const data = [
 		src: ClassIV1008,
 		txt: `Planks`,
 	},
-
 ];
+
+const gallery = [
+{
+	src: ClassIV1008,
+},
+{
+	src: ClassIV1008,
+},
+{
+	src: ClassIV1008,
+},
+{
+	src: ClassIV1008,
+},
+{
+	src: ClassIV1008,
+},
+]
 
 export default function LuxuryVinyl() {
 	return (
@@ -81,6 +99,7 @@ export default function LuxuryVinyl() {
 			<div className="product-container">
 				<PhotoCards data={data} />
 			</div>
+			<GalleryCarousel data={gallery} />
 			<Footer />
 		</>
 	);

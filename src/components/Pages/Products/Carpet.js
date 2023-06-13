@@ -5,6 +5,7 @@ import "./Products.css";
 import HeaderBar from "../../HeaderBar/HeaderBar";
 import Footer from "../../Footer/Footer";
 import PhotoCards from "../../PhotoCards/PhotoCards";
+import GalleryCarousel from "../../GalleryCarousel/GalleryCarousel";
 
 
 import StellaQ1 from "./Assets/StellaQ1.png";
@@ -120,6 +121,9 @@ export default function Carpet() {
 			</div>
 			<div className="product-container">
 				<PhotoCards data={data} />
+			</div>
+			<div className="gallery-container">
+			<GalleryCarousel data={data}/>
 			</div>
 			<Footer />
 		</>
