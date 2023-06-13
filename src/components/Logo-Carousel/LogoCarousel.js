@@ -94,13 +94,13 @@ export default function LogoCarousel() {
 					<img width="75%" src={Tarkett} alt="Tarkett" />
 				</div>
 				<div className="logo-carousel">
-					<img width="75%" src={Bentley} alt="Tarkett" />
+					<img width="75%" src={Bentley} alt="Bentley" />
 				</div>
 				<div className="logo-carousel">
-					<img width="75%" src={Interface} alt="Tarkett" />
+					<img width="75%" src={Interface} alt="Interface" />
 				</div>
 				<div className="logo-carousel">
-					<img width="75%" src={Mannington} alt="Tarkett" />
+					<img width="75%" src={Mannington} alt="Mannington" />
 				</div>
 			</Carousel>
 		</div>
