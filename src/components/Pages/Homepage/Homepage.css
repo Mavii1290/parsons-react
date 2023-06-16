@@ -51,6 +51,9 @@
 }
 .photo-overlay-mobile{
 	display: none;
+		position: absolute;
+	width: 100%;
+	z-index: -1;
 }
 .company-info {
 	padding: 1rem;
@@ -112,6 +115,10 @@
 	.company-info-text-experts h4 {
 		font-size: 20px;
 		padding-bottom: 2.0rem;
+	}
+	.photo-overlay-mobile{
+		display:block;
+		top:40%;
 	}
 }
 @media screen and (max-width:982px) {

@@ -1,5 +1,5 @@
 import React from 'react'; 
-import { CardGroup, Container, Card } from "react-bootstrap";
+import { Row, Col, Container, Card } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import "./PhotoCards.css";
@@ -17,16 +17,19 @@ return (
     <>
 <div className="product-card">
       <Container fluid>
-        <CardGroup>
-          {data.map(({ name, src, path }) => (
+        <Row xs={1} md={2} xxl={3}>
+          {data.map(({ name, src, path, txt }) => (
+            <Col>
             <Card key={name} className={name} onClick={() => handleProduct(path)}>
               <Card.Img variant="top" className="overlay" src={src} />
               <Card.Body>
                 <Card.Title>{name}</Card.Title>
+                <Card.Text>{txt}</Card.Text>
               </Card.Body>
             </Card>
+            </Col>
           ))}
-        </CardGroup>
+        </Row>
       </Container>
     </div>
     </>

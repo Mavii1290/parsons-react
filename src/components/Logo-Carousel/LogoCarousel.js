@@ -1,7 +1,6 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { CarouselItem } from "react-bootstrap";
 
 import "./LogoCarousel.css";
 import Connor from "./Connor.png";

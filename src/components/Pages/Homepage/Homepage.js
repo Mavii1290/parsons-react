@@ -12,8 +12,8 @@ import PhotoCards from "../../PhotoCards/PhotoCards";
 import carpet from "../Assets/carpet.png";
 import herringbone from "../Assets/herringbone.png";
 import kitchen from "../Assets/kitchen.png";
-import woodtile from "../Assets/woodtile.png";
 import homepageDropback from "./homepageDropback.png";
+import homepageDropbackMobile from "./homepageDropbackMobile.png";
 import WoodInstall from "../Assets/WoodInstall.png";
 import carpetInstall from "../Assets/carpetInstall.png";
 import womenCarpet1 from "../Assets/womanCarpet1.png";
@@ -103,6 +103,11 @@ export default function Homepage() {
 					alt="tile-n-wood-flooring"
 					className="photo-overlay"
 				/>
+								<img
+					src={homepageDropbackMobile}
+					alt="tile-n-wood-flooring"
+					className="photo-overlay-mobile"
+				/>
 				</div>
 				<div className="company-info">
 				<img src={WoodInstall} alt="" className="company-info-image"/>
@@ -125,11 +130,7 @@ export default function Homepage() {
 				<p>We aim to please! We stand behind our work 100%.</p>
 				</div>
 				</div>
-				<img
-					src={homepageDropback}
-					alt="tile-n-wood-flooring"
-					className="photo-overlay"
-				/>
+
 				</div>
 				<div className="manufacturers-section">
 					<h4>Featured Manufacturers</h4>

@@ -4,35 +4,6 @@ import "./Products.css";
 
 import HeaderBar from "../../HeaderBar/HeaderBar";
 import Footer from "../../Footer/Footer";
-import PhotoCards from "../../PhotoCards/PhotoCards";
-import GalleryCarousel from "../../GalleryCarousel/GalleryCarousel";
-
-import StellaQ from "./StellaQ.png";
-import Carpet0 from "../Assets/Gallery/Carpet/Carpet0.png"
-
-const data = [
-	{
-		name: "Stella Q1",
-		src: StellaQ,
-		path: "Carpet",
-	},
-	{
-		name: "Vinyl Composite Tile",
-		src: StellaQ,
-		path: "VinylTile",
-	},
-	{
-		name: "Luxury Vinyl",
-		src: StellaQ,
-		path: "LuxuryVinyl",
-	},
-];
-
-const gallery = [
-	{
-		src: Carpet,
-	}
-]
 
 export default function Carpet() {
 	return (
@@ -51,12 +22,6 @@ export default function Carpet() {
 					Discover unbeatable prices on our premium carpets at Parson's Floors,
 					perfect for enhancing your commercial space!
 				</p>
-			</div>
-			<div className="product-container">
-				<PhotoCards data={data} />
-			</div>
-			<div className="gallery-carousel">
-				<GalleryCarousel data={gallery} />
 			</div>
 			<Footer />
 		</>

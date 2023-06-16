@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 import HeaderBar from "../../HeaderBar/HeaderBar";
+import Footer from "../../Footer/Footer";
 import LogoCarousel from "../../Logo-Carousel/LogoCarousel";
 import PhotoCards from "../../PhotoCards/PhotoCards";
 
@@ -52,8 +53,14 @@ export default function Products() {
 			<LogoCarousel />
 			<div className="product-container">
 				<img src={whiteWood} alt="White Wood" className="product-underlay" />
+				<img src={whiteWood} alt="White Wood" className="product-underlay-mobile" />
+				<img src={whiteWood} alt="White Wood" className="product-underlay-mobile2" />
+				<img src={whiteWood} alt="White Wood" className="product-underlay-mobile3" />
+				<img src={whiteWood} alt="White Wood" className="product-underlay-mobile4" />
+
 				<PhotoCards data={data} />
 			</div>
+			<Footer />
 		</>
 	);
 }

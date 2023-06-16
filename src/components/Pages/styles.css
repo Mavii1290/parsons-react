@@ -57,7 +57,7 @@ display: flex;
     background-color: var(--blue);
 }
 
-.contracts-section {
+.contracts-section, .carpet-gallery-section h2, .lvt-gallery-section h2,.vct-gallery-section h2{
     width: 75%;
     margin-top: 3rem;
     font-family: var(--base-font);
@@ -74,6 +74,8 @@ display: flex;
 .card {
     max-width: 100%;
   }
+
+
 
   @media screen and (width > 960px) and (width < 1172px) {
 
