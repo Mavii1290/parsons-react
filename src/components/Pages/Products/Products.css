@@ -6,12 +6,10 @@
     line-height: 1.5rem;
 }
 .product-container {
-    position: relative;
-  }
-.product-container  {
+    position: relative;    
     padding-top: 3rem;
     display: flex;
-}
+  }
 
 .product-underlay{
     position: absolute;
@@ -48,7 +46,7 @@
         display: block;
         top: 0%;
     }
-    .product-underlay-mobile2, {
+    .product-underlay-mobile2 {
         display: block;
         z-index: -1;
               top:40%;
