@@ -4,6 +4,101 @@ import "./Products.css";
 
 import HeaderBar from "../../HeaderBar/HeaderBar";
 import Footer from "../../Footer/Footer";
+import PhotoCards from "../../PhotoCards/PhotoCards";
+import CarpetGallery from "../../GalleryCarousel/CarpetGallery";
+
+import StellaQ1 from "./Assets/Carpet/StellaQ1.png";
+import StellaQ2 from "./Assets/Carpet/StellaQ2.png";
+import StellaQ3 from "./Assets/Carpet/StellaQ3.png";
+import StellaQ4 from "./Assets/Carpet/StellaQ4.png";
+import StellaQ5 from "./Assets/Carpet/StellaQ5.png";
+import StellaQ6 from "./Assets/Carpet/StellaQ6.png";
+import OuterBanks001 from "./Assets/Carpet/OuterBanks001.png";
+import OuterBanks002 from "./Assets/Carpet/OuterBanks002.png";
+import OuterBanks003 from "./Assets/Carpet/OuterBanks003.png";
+import OuterBanks004 from "./Assets/Carpet/OuterBanks004.png";
+import OuterBanks005 from "./Assets/Carpet/OuterBanks005.png";
+import OuterBanks006 from "./Assets/Carpet/OuterBanks006.png";
+import HorizonBlue from "./Assets/Carpet/HorizonBlue.png";
+import HorizonGreen from "./Assets/Carpet/HorizonGreen.png";
+import HorizonRust from "./Assets/Carpet/HorizonRust.png";
+
+const data = [
+	{
+		name: "Stella 1",
+		src: StellaQ1,
+		txt: `24" x 24" Carpet Squares`,
+	},
+	{
+		name: "Stella 2",
+		src: StellaQ2,
+		txt: `24" x 24" Carpet Squares`,
+	},
+	{
+		name: "Stella 3",
+		src: StellaQ3,
+		txt: `24" x 24" Carpet Squares`,
+	},
+	{
+		name: "Stella 4",
+		src: StellaQ4,
+		txt: `24" x 24" Carpet Squares`,
+	},
+	{
+		name: "Stella 5",
+		src: StellaQ5,
+		txt: `24" x 24" Carpet Squares`,
+	},
+	{
+		name: "Stella 6",
+		src: StellaQ6,
+		txt: `24" x 24" Carpet Squares`,
+	},
+	{
+		name: "OuterBanks 1",
+		src: OuterBanks001,
+		txt: `24" x 24" Carpet Squares`,
+	},
+	{
+		name: "OuterBanks 2",
+		src: OuterBanks002,
+		txt: `24" x 24" Carpet Squares`,
+	},
+	{
+		name: "OuterBanks 3",
+		src: OuterBanks003,
+		txt: `24" x 24" Carpet Squares`,
+	},
+	{
+		name: "OuterBanks 4",
+		src: OuterBanks004,
+		txt: `24" x 24" Carpet Squares`,
+	},
+	{
+		name: "OuterBanks 5",
+		src: OuterBanks005,
+		txt: `24" x 24" Carpet Squares`,
+	},
+	{
+		name: "OuterBanks 6",
+		src: OuterBanks006,
+		txt: `24" x 24" Carpet Squares`,
+	},
+	{
+		name: "Horizon Blue",
+		src: HorizonBlue,
+		txt: `24" x 24" Carpet Squares`,
+	},
+	{
+		name: "Horizon Green",
+		src: HorizonGreen,
+	},
+	{
+		name: "Horizon Rust",
+		src: HorizonRust,
+		txt: `24" x 24" Carpet Squares`,
+	},
+];
 
 export default function Carpet() {
 	return (
@@ -22,6 +117,12 @@ export default function Carpet() {
 					Discover unbeatable prices on our premium carpets at Parson's Floors,
 					perfect for enhancing your commercial space!
 				</p>
+			</div>
+			<div className="product-container">
+				<PhotoCards data={data} />
+			</div>
+			<div className="gallery-container">
+				<CarpetGallery />
 			</div>
 			<Footer />
 		</>
