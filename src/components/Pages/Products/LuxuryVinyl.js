@@ -7,13 +7,13 @@ import GalleryCarousel from "../../GalleryCarousel/GalleryCarousel";
 
 import "./Products.css";
 
-import ClassIV1000 from "./Assets/ClassIV1000.png";
-import ClassIV1001 from "./Assets/ClassIV1001.png";
-import ClassIV1002 from "./Assets/ClassIV1002.png";
-import ClassIV1003 from "./Assets/ClassIV1003.png";
-import ClassIV1005 from "./Assets/ClassIV1005.png";
-import ClassIV1006 from "./Assets/ClassIV1006.png";
-import ClassIV1008 from "./Assets/ClassIV1008.png";
+import ClassIV1000 from "./Assets/LVT/ClassIV1000.png";
+import ClassIV1001 from "./Assets/LVT/ClassIV1001.png";
+import ClassIV1002 from "./Assets/LVT/ClassIV1002.png";
+import ClassIV1003 from "./Assets/LVT/ClassIV1003.png";
+import ClassIV1005 from "./Assets/LVT/ClassIV1005.png";
+import ClassIV1006 from "./Assets/LVT/ClassIV1006.png";
+import ClassIV1008 from "./Assets/LVT/ClassIV1008.png";
 
 const data = [
 	{

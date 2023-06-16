@@ -15,13 +15,13 @@ export default function GalleryCarousel({ data }) {
 				containerClass="container-with-dots"
 				dotListClass="react-multi-carousel-dot-list"
 				draggable
-                emulateTouch={true}
+				emulateTouch={true}
 				focusOnSelect={true}
 				infiniteLoop={true}
-                showArrows={true}
-                swipeable={true}
-                margin= " auto 0"
-                showStatus={false}
+				showArrows={true}
+				swipeable={true}
+				margin=" auto 0"
+				showStatus={false}
 			>
 				{/* <Carousel
 				additionalTransfrom={-60 * 5}

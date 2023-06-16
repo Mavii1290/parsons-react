@@ -7,21 +7,21 @@ import Footer from "../../Footer/Footer";
 import PhotoCards from "../../PhotoCards/PhotoCards";
 import CarpetGallery from "../../GalleryCarousel/CarpetGallery";
 
-import StellaQ1 from "./Assets/StellaQ1.png";
-import StellaQ2 from "./Assets/StellaQ2.png";
-import StellaQ3 from "./Assets/StellaQ3.png";
-import StellaQ4 from "./Assets/StellaQ4.png";
-import StellaQ5 from "./Assets/StellaQ5.png";
-import StellaQ6 from "./Assets/StellaQ6.png";
-import OuterBanks001 from "./Assets/OuterBanks001.png";
-import OuterBanks002 from "./Assets/OuterBanks002.png";
-import OuterBanks003 from "./Assets/OuterBanks003.png";
-import OuterBanks004 from "./Assets/OuterBanks004.png";
-import OuterBanks005 from "./Assets/OuterBanks005.png";
-import OuterBanks006 from "./Assets/OuterBanks006.png";
-import HorizonBlue from "./Assets/HorizonBlue.png";
-import HorizonGreen from "./Assets/HorizonGreen.png";
-import HorizonRust from "./Assets/HorizonRust.png";
+import StellaQ1 from "./Assets/Carpet/StellaQ1.png";
+import StellaQ2 from "./Assets/Carpet/StellaQ2.png";
+import StellaQ3 from "./Assets/Carpet/StellaQ3.png";
+import StellaQ4 from "./Assets/Carpet/StellaQ4.png";
+import StellaQ5 from "./Assets/Carpet/StellaQ5.png";
+import StellaQ6 from "./Assets/Carpet/StellaQ6.png";
+import OuterBanks001 from "./Assets/Carpet/OuterBanks001.png";
+import OuterBanks002 from "./Assets/Carpet/OuterBanks002.png";
+import OuterBanks003 from "./Assets/Carpet/OuterBanks003.png";
+import OuterBanks004 from "./Assets/Carpet/OuterBanks004.png";
+import OuterBanks005 from "./Assets/Carpet/OuterBanks005.png";
+import OuterBanks006 from "./Assets/Carpet/OuterBanks006.png";
+import HorizonBlue from "./Assets/Carpet/HorizonBlue.png";
+import HorizonGreen from "./Assets/Carpet/HorizonGreen.png";
+import HorizonRust from "./Assets/Carpet/HorizonRust.png";
 
 const data = [
 	{
