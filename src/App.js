@@ -13,6 +13,7 @@ import LuxuryVinyl from "./components/Pages/Products/LuxuryVinyl";
 
 export default function App() {
 	return (
+		<>
 		<BrowserRouter>
 			<Routes>
 				<Route path="/" element={<Homepage />} />
@@ -29,5 +30,6 @@ export default function App() {
 				<Route path="/Contact" element={<Contact />} />
 			</Routes>
 		</BrowserRouter>
+		</>
 	);
 }

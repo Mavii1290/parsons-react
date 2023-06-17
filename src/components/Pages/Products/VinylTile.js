@@ -3,6 +3,7 @@ import React from "react";
 import HeaderBar from "../../HeaderBar/HeaderBar";
 import Footer from "../../Footer/Footer";
 import PhotoCards from "../../PhotoCards/PhotoCards";
+import GalleryCarousel from "../../GalleryCarousel/VCTGallery";
 
 import Adobe from "./Assets/VCT/Adobe.png";
 import Almond from "./Assets/VCT/Almond.png";
@@ -51,6 +52,53 @@ import WinterStorm from "./Assets/VCT/WinterStorm.png";
 
 import "./Products.css";
 
+const data = [
+	{ name: "Adobe", src: Adobe },
+	{ name: "Almond", src: Almond },
+	{ name: "Amberlight", src: Amberlight },
+	{ name: "BlueDrop", src: BlueDrop },
+	{ name: "Butter Milk", src: ButterMilk },
+	{ name: "Cloudy", src: Cloudy },
+	{ name: "Cooper", src: Cooper },
+	{ name: "Dark Green", src: DarkGreen },
+	{ name: "Daylight SR", src: DaylightSR },
+	{ name: "Deep Plum", src: DeepPlum },
+	{ name: "Desert Storm", src: DesertStorm },
+	{ name: "Doeskin Brown", src: DoeskinBrown },
+	{ name: "Deepwater", src: Deepwater },
+	{ name: "Dunes", src: Dunes },
+	{ name: "Earth", src: Earth },
+	{ name: "Ebony", src: Ebony },
+	{ name: "Ginger Spice", src: GingerSpice },
+	{ name: "Green Grape", src: GreenGrape },
+	{ name: "Ivory Tower", src: IvoryTower },
+	{ name: "Matador", src: Matador },
+	{ name: "Meadow", src: Meadow },
+	{ name: "Military Tan", src: MilitaryTan },
+	{ name: "Mineral White", src: MineralWhite },
+	{ name: "Mushroom", src: Mushroom },
+	{ name: "Palm", src: Palm },
+	{ name: "Pebble", src: Pebble },
+	{ name: "Pewter", src: Pewter },
+	{ name: "Sandstone", src: Sandstone },
+	{ name: "Seafoam", src: Seafoam },
+	{ name: "Shooting Star", src: ShootingStar },
+	{ name: "Sky Vista", src: SkyVista },
+	{ name: "Solid Black", src: SolidBlack },
+	{ name: "Solid Red", src: SolidRed },
+	{ name: "Solid White", src: SolidWhite },
+	{ name: "Starry Night", src: StarryNight },
+	{ name: "Steel Works", src: SteelWorks },
+	{ name: "Stone Grey Quartz", src: StoneGreyQuartz },
+	{ name: "Stone Taupe Quartz", src: StoneTaupeQuartz },
+	{ name: "Stone White Quartz", src: StoneWhiteQuartz },
+	{ name: "Sunlight SR", src: SunlightSR },
+	{ name: "True Biege", src: TrueBiege },
+	{ name: "Turquoise", src: Turquoise },
+	{ name: "Twilight SR", src: TwilightSR },
+	{ name: "Winter Storm", src: WinterStorm },
+];
+
 export default function VinylTile() {
 	return (
 		<>
@@ -72,6 +120,11 @@ export default function VinylTile() {
 					offices alike.
 				</p>
 			</div>
+			<div className="product-container">
+				<PhotoCards data={data} />
+			</div>
+			<GalleryCarousel />
+			<Footer />
 		</>
 	);
 }
