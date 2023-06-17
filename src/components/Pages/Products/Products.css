@@ -42,6 +42,9 @@
 }
 
 @media screen and (width < 768px) {
+    .product-underlay{
+        display:none;
+    }
     .product-underlay-mobile{
         display: block;
         top: 0%;

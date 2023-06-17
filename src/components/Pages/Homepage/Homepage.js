@@ -96,8 +96,8 @@ export default function Homepage() {
 					Learn More
 				</button>
 			</div>
-			<div className="company-info-section">	
-			<div className="company-info-section-img">	
+			<div className="company-info-container">
+			<div className="company-info-dropback">	
 				<img
 					src={homepageDropback}
 					alt="tile-n-wood-flooring"
@@ -109,6 +109,7 @@ export default function Homepage() {
 					className="photo-overlay-mobile"
 				/>
 				</div>
+			<div className="company-info-section">	
 				<div className="company-info">
 				<img src={WoodInstall} alt="" className="company-info-image"/>
 				<div className="company-info-text">
@@ -130,7 +131,7 @@ export default function Homepage() {
 				<p>We aim to please! We stand behind our work 100%.</p>
 				</div>
 				</div>
-
+				</div>
 				</div>
 				<div className="manufacturers-section">
 					<h4>Featured Manufacturers</h4>
