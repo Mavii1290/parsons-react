@@ -64,7 +64,6 @@
 
 .company-info {
 	padding: 1rem;
-	width: 40%;
 	font-family: var(--base-font);
 	color: white;
 	display: flex;
@@ -72,13 +71,12 @@
 	align-items: center;
 }
 .company-info-image{
-	width: 75%;
+	width: 80%;
 	border-radius: 50%;
-	margin: 1rem;
 }
 .company-info-text, .company-info-text-experts, .company-info-text-cust{
 	padding-top: 1.5rem;
-	width: 70%;
+	width: 100%;
 	text-align: center;
 	line-height: 1.5rem;
 }
@@ -105,14 +103,26 @@
 .manufacturers-section p {
     padding-bottom:3%;
 }
-@media screen and (width < 1800px) {
-	.company-info-text-experts h4 {
-		padding-bottom: 2.30rem;
+@media screen and (width < 1100px) {
+	.company-info-section{
+		padding: 0 1rem;
 	}
 }
-@media screen and (width < 1625px) {
-	.company-info-text h4, .company-info-text-experts h4, .company-info-text-cust h4{
-		width: 100%;
+@media screen and (width < 992px) {
+	.photo-overlay{
+		display: none;
+	}
+	.photo-overlay-mobile {
+		display: block;
+		height: 175%;
+	}
+	.company-info-section .col {
+		justify-content: center;
+	}
+}
+/* @media screen and (width < 1800px) {
+	.company-info-text-experts h4 {
+		padding-bottom: 2.30rem;
 	}
 }
 @media screen and (width < 1249px) {
@@ -124,9 +134,10 @@
 		padding-bottom: 2.0rem;
 	}
 	.photo-overlay-mobile{
-		display:block;
-		top:40%;
+		display:none;
 	}
+
+	.company-info-section {}
 }
 @media screen and (max-width:982px) {
 	.homepage-intro{
@@ -147,9 +158,6 @@
 	.company-info {
 		flex-wrap: wrap;
 	}
-	.company-info-image {
-		width:60%;
-	}
 	.company-info-text h4, .company-info-text-experts h4 {
 		font-size: 20px;
 	}
@@ -158,13 +166,16 @@
 		width: 106%;
 		padding-bottom: 1.20rem;
 	}
-}
-@media screen and (width < 973px) {
-	.company-info-text, .company-info-text-experts, .company-info-text-cust {
-		width:100%;
+
+	.photo-overlay{
+		height: 80%;
+	}
+	.photo-overlay-mobile{
+		display: none;
 	}
 }
-@media screen and (width < 959px) {
+
+@media screen and (width < 960px) {
 	.photo-overlay{
 		height: 100%;
 	}
@@ -172,6 +183,21 @@
 	/* .company-info-section {
 		flex-direction: column-reverse;
 	} */
+
+
+
+
+/* 
+@media screen and (width < 700px){
+	.photo-overlay{
+		display: none;
+	}
+	.photo-overlay-mobile{
+		display: block;
+	}
+	/* .company-info-section {
+		flex-direction: column-reverse;
+	} 
 	.company-info-image {
 		width:60%;
 	}
@@ -179,4 +205,5 @@
 		margin: 0 auto;
 		width: 78%;
 	}
-}
+
+} */
