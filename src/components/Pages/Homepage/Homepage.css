@@ -82,7 +82,7 @@
 }
 .company-info-text h4, .company-info-text-cust h4, .company-info-text-experts h4 {
 	padding-bottom: 1rem;
-	width: 75%;
+	width: 100%;
 	margin: 0 auto;
 }
 
@@ -96,10 +96,16 @@
 .manufacturers-section p {
     padding-bottom:3%;
 }
-@media screen and (width < 1100px) {
+@media screen and (width < 1252px) {
 	.company-info-section{
 		padding: 0 1rem;
 	}
+	.company-info-text h4, .company-info-text-cust h4, .company-info-text-experts h4 {
+		width: 80%;
+	}
+	.company-info-text-experts h4 {
+        padding-bottom: 2.8rem;
+    }
 }
 @media screen and (width < 992px) {
 	.photo-overlay{
@@ -107,12 +113,35 @@
 	}
 	.photo-overlay-mobile {
 		display: block;
-		height: 175%;
-	}
+		height: 160%;}
+	
 	.company-info-section .col {
 		justify-content: center;
 	}
+
+.experts {
+	padding-top: 0;
+	position: relative;
+	left: 50%;
 }
+
+	.company-info-text h4, .company-info-text-cust h4, .company-info-text-experts h4 {
+		width: 70%;
+	}
+	.company-info-text-experts h4 {
+        padding-bottom: 1rem;
+    }
+}
+@media screen and (width < 900px){
+	.photo-overlay-mobile {
+		height: 145%;}
+}
+@media screen and (width < 768px){
+	.company-info-image {
+		width:50%;
+	}
+}
+
 /* @media screen and (width < 1800px) {
 	.company-info-text-experts h4 {
 		padding-bottom: 2.30rem;

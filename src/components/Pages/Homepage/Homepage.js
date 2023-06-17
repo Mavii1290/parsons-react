@@ -137,6 +137,19 @@ export default function Homepage() {
 							<Col>
 								<div className="company-info">
 									<img
+										src={carpetInstall}
+										alt=""
+										className="company-info-image"
+									/>
+									<div className="company-info-text-cust">
+										<h4>Customer Satisfaction Guaranteed</h4>
+										<p>We aim to please! We stand behind our work 100%.</p>
+									</div>
+								</div>
+							</Col>
+							<Col>
+								<div className="company-info experts">
+									<img
 										src={womenCarpet1}
 										alt=""
 										className="company-info-image"
@@ -147,19 +160,6 @@ export default function Homepage() {
 											Meet our design team to assist in helping you create the
 											best design for your needs.
 										</p>
-									</div>
-								</div>
-							</Col>
-							<Col>
-								<div className="company-info">
-									<img
-										src={carpetInstall}
-										alt=""
-										className="company-info-image"
-									/>
-									<div className="company-info-text-cust">
-										<h4>Customer Satisfaction Guaranteed</h4>
-										<p>We aim to please! We stand behind our work 100%.</p>
 									</div>
 								</div>
 							</Col>
