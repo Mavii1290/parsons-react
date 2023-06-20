@@ -1,3 +1,6 @@
+.homepage-container{
+	max-width: 100%;
+}
 .carousel-text{
 	background-color: rgba(0, 0, 0, 0.5);
 	backdrop-filter: blur(2px);
@@ -42,11 +45,10 @@
 .company-info-container {
 	width: 100%;
 }
-
 .photo-overlay {
 	position: absolute;
 	width: 100%;
-	
+	object-fit:cover;
 	z-index: -1;
 }
 .photo-overlay-mobile{
@@ -60,8 +62,6 @@
 	display: flex;
 	padding: 3%;
 }
-
-
 .company-info {
 	padding: 1rem;
 	font-family: var(--base-font);
@@ -85,27 +85,39 @@
 	width: 100%;
 	margin: 0 auto;
 }
-
-
 .manufacturers-section {
-    padding: 10%;
-    text-align: center;
-    font-family: var(--base-font);
+	padding: 10%;
+	text-align: center;
+	font-family: var(--base-font);
 }
-
 .manufacturers-section p {
-    padding-bottom:3%;
+	padding-bottom:3%;
+}
+@media screen and (width > 2000px) {
+	.photo-overlay {
+		height: 75%;
+	}
+}
+@media screen and (width > 1700px) and (width < 1999px) {
+	.photo-overlay {
+		height: 65%;
+	}
+}
+@media screen and (width > 1300px) and (width < 1700px) {
+	.photo-overlay {
+		height: 55%;
+	}
 }
 @media screen and (width < 1252px) {
 	.company-info-section{
-		padding: 0 1rem;
+		padding: 1rem;
 	}
 	.company-info-text h4, .company-info-text-cust h4, .company-info-text-experts h4 {
 		width: 80%;
 	}
 	.company-info-text-experts h4 {
-        padding-bottom: 2.8rem;
-    }
+		padding-bottom: 2.8rem;
+	}
 }
 @media screen and (width < 992px) {
 	.photo-overlay{
@@ -113,32 +125,69 @@
 	}
 	.photo-overlay-mobile {
 		display: block;
-		height: 160%;}
-	
+		height: 65rem;
+	}
 	.company-info-section .col {
 		justify-content: center;
+		padding-bottom: 2rem;
 	}
-
-.experts {
-	padding-top: 0;
-	position: relative;
-	left: 50%;
-}
-
+	.experts {
+		padding-top: 0;
+		position: relative;
+		left: 55%;
+	}
 	.company-info-text h4, .company-info-text-cust h4, .company-info-text-experts h4 {
 		width: 70%;
 	}
 	.company-info-text-experts h4 {
-        padding-bottom: 1rem;
-    }
+		padding-bottom: 1rem;
+	}
 }
 @media screen and (width < 900px){
 	.photo-overlay-mobile {
-		height: 145%;}
+		height: 60rem;
+	}
 }
 @media screen and (width < 768px){
+	.photo-overlay-mobile {
+		height: 95rem;
+	}
 	.company-info-image {
 		width:50%;
+	}
+	.experts {
+		left: 0%;
+		padding-top: 1rem;
+	}
+}
+@media screen and (width < 720px){
+	.photo-overlay-mobile {
+		height: 90rem;
+	}
+}
+@media screen and (width < 670px){
+	.photo-overlay-mobile {
+		height: 85rem;
+	}
+}
+@media screen and (width < 600px){
+	.photo-overlay-mobile {
+		height: 80rem;
+	}
+}
+@media screen and (width < 500px){
+	.photo-overlay-mobile {
+		height: 75rem;
+	}
+}
+@media screen and (width < 430px){
+	.photo-overlay-mobile {
+		height: 70rem;
+	}
+}
+@media screen and (width < 340px){
+	.photo-overlay-mobile {
+		height: 65rem;
 	}
 }
 

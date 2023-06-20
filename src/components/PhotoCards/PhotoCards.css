@@ -1,22 +1,22 @@
 .product-card {
+  width:90%;
     font-family: var(--base-font);
     text-align: center;
     margin: auto;
- 
   }
   
   .card {
-    margin:5rem;
+    margin:rem;
     border-radius: 25px;
+    
   }
   .overlay {
     border-radius: 25px 25px 0 0 ;
   }
   .row>* {
-    padding-right: 0;
-    padding-left: 0;
+    padding: 0 2rem;
     margin-top: 0;
-    
+    padding-bottom:  5rem;
   }
   .card-group .card .card-title {
     font-family: var(--base-font);
@@ -36,7 +36,14 @@
     left: 0;
     width: 100%;
     height: 100%;
-    
 
   }
   
+@media screen and (width < 700px){
+  /* .card {
+    margin:2rem 5rem;
+  } */
+  .row>* {
+    padding-bottom:  2rem;
+  }
+}

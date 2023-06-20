@@ -13,7 +13,8 @@ export default function About() {
 			<div className="page-intro">
 				<h1>About Parsons Floors</h1>
 				<div className="page-intro-container">
-					<img src={VCTExample} alt="" />
+				<div className="page-intro-img">
+					<img src={VCTExample} alt="" /></div>
 					<div className="page-intro-content">
 						<h2>Our History</h2>
 						<p>

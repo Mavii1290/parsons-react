@@ -135,7 +135,7 @@ export default function Contact() {
 
 	if (!formValid) {
 		return (
-			<>
+			<div>
 				<HeaderBar />
 				<div className="page-intro">
 					<h2>Parsons Floor</h2>
@@ -165,6 +165,7 @@ export default function Contact() {
 							<h6>Sunday: 12–5PM</h6>
 						</div>
 					</div>
+					<div className="message-card">
 					<div className="card shadow-sm border-0 px-3 rounded-2 mb-3 py-4 mx-auto mt-5 bg-light">
 						<div className="card-header bg-transparent border-0 text-center text-uppercase">
 							<h3>Send us a message</h3>
@@ -270,6 +271,7 @@ export default function Contact() {
 							</form>
 						</div>
 					</div>
+					</div>
 				</div>
 				<div className="google-maps" style={{
   display: "flex",
@@ -287,7 +289,7 @@ export default function Contact() {
 					></iframe>
 				</div>
 				<Footer />
-			</>
+			</div>
 		);
 	} else {
 		return (

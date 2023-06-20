@@ -26,18 +26,20 @@ display: flex;
     display:flex;
     margin: 0 auto;
 }
-
+.page-intro-img {
+    width: 45%;
+}
 .page-intro-content {
-    width: 50%;
+    width: 45%;
     font-family: var(--base-font);
     margin: 0 auto;
     text-align: center;
     line-height: 1.5rem;
+    padding-left: 1.5rem;
 }
 
 .page-intro-content p {
     margin: 2rem auto;
-
 }
 
 .about-content {
@@ -71,12 +73,45 @@ display: flex;
 }
 
 
+/*CONTACT PAGE*/
+.message-card {
+    width: 50%;
+    padding:0 2rem;
+}
+
 .card {
-    max-width: 100%;
+    width: 100%;
   }
+/*ABOUT PAGE*/
+@media screen and (width < 1600px) {
+    .page-intro {
+        width: 90%;
+    }
+}
+
+@media screen and (width < 1275px) {
+    .page-intro-container img {
+        width: 50%;
+    }
+}
 
 
-
-  @media screen and (width > 960px) and (width < 1172px) {
-
+@media screen and (width < 1450px) {
+    .page-intro {
+        width: 90%;
+    }
+    
+}
+  @media screen and (width < 960px){
+    .page-intro-content {
+        margin: 2rem auto;
+        width:75%;
+        text-align: center;
+        padding-left: 0;
+    }
+    .page-intro-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
   }

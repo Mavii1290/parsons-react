@@ -1,6 +1,7 @@
 .carousel-container {
     margin: 0 auto;
-    padding: 0 5rem;
+    padding-bottom:2rem;
+   /* padding: 0 5rem;*/
 }
 
 .logo-carousel {
