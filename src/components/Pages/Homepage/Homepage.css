@@ -98,16 +98,16 @@
 .manufacturers-section p {
 	padding-bottom:3%;
 }
-@media screen and (width > 2000px) {
+/* @media screen and (width > 2000px) {
 	.photo-overlay {
 		height: 75%;
 	}
-}
-@media screen and (width > 1700px) and (width < 1999px) {
+} */
+/* @media screen and (width > 1700px) and (width < 1999px) {
 	.photo-overlay {
 		height: 65%;
 	}
-}
+} */
 
 @media screen and (width < 1252px) {
 		.homepage-intro  {
