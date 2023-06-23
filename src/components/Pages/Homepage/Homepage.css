@@ -4,7 +4,7 @@
 .carousel-text{
 	background-color: rgba(0, 0, 0, 0.5);
 	backdrop-filter: blur(2px);
-	bottom:15.25rem;
+	bottom:25rem;
 	font-family: var(--base-font);
 }
 .text-overlay {
@@ -30,6 +30,10 @@
 	line-height: 1.5rem;
 	font-family: var(--base-font);
 }
+
+.homepage-intro h2 {
+	padding-bottom: .5rem;
+}
 .about-us-btn {
 	color: var(--white);
 	background-color: var(--dark-blue);
@@ -45,6 +49,7 @@
 .company-info-container {
 	width: 100%;
 }
+
 .photo-overlay {
 	position: absolute;
 	width: 100%;
@@ -103,18 +108,19 @@
 		height: 65%;
 	}
 }
-@media screen and (width > 1300px) and (width < 1700px) {
-	.photo-overlay {
-		height: 55%;
-	}
-}
+
 @media screen and (width < 1252px) {
+		.homepage-intro  {
+		width: 75%;
+	}
+
+	.carousel-text{ 
+		bottom: 15rem;
+	}
 	.company-info-section{
 		padding: 1rem;
 	}
-	.company-info-text h4, .company-info-text-cust h4, .company-info-text-experts h4 {
-		width: 80%;
-	}
+
 	.company-info-text-experts h4 {
 		padding-bottom: 2.8rem;
 	}
@@ -125,16 +131,13 @@
 	}
 	.photo-overlay-mobile {
 		display: block;
-		height: 65rem;
+		height: 67rem;
 	}
-	.company-info-section .col {
-		justify-content: center;
-		padding-bottom: 2rem;
-	}
+
 	.experts {
 		padding-top: 0;
 		position: relative;
-		left: 55%;
+		left: 25%;
 	}
 	.company-info-text h4, .company-info-text-cust h4, .company-info-text-experts h4 {
 		width: 70%;
@@ -145,8 +148,20 @@
 }
 @media screen and (width < 900px){
 	.photo-overlay-mobile {
-		height: 60rem;
+		height: 62rem;
 	}
+	.carousel-text{
+		bottom:8rem;
+	}
+
+	.carousel-caption{
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+	.company-info-text-cust h4 {
+		width: 85%;
+	}
+
 }
 @media screen and (width < 768px){
 	.photo-overlay-mobile {
@@ -162,17 +177,26 @@
 }
 @media screen and (width < 720px){
 	.photo-overlay-mobile {
-		height: 90rem;
+		height: 92rem;
 	}
 }
 @media screen and (width < 670px){
 	.photo-overlay-mobile {
-		height: 85rem;
+		height: 87rem;
+	}
+	.carousel-text h3 {
+		font-size: 19px;
+	}
+	.carousel-text p {
+		font-size: 12px;
 	}
 }
 @media screen and (width < 600px){
 	.photo-overlay-mobile {
 		height: 80rem;
+	}
+	.carousel-text{
+		bottom:5rem;
 	}
 }
 @media screen and (width < 500px){

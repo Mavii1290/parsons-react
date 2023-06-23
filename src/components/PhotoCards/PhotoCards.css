@@ -6,7 +6,7 @@
   }
   
   .card {
-    margin:rem;
+
     border-radius: 25px;
     
   }
@@ -14,9 +14,9 @@
     border-radius: 25px 25px 0 0 ;
   }
   .row>* {
-    padding: 0 2rem;
+    padding: 1rem 2rem;
     margin-top: 0;
-    padding-bottom:  5rem;
+   
   }
   .card-group .card .card-title {
     font-family: var(--base-font);
@@ -43,7 +43,7 @@
   /* .card {
     margin:2rem 5rem;
   } */
-  .row>* {
+  .row>*  {
     padding-bottom:  2rem;
   }
 }

@@ -19,9 +19,9 @@ export default function HeaderBar() {
   };
 
   return (
-    <div>
+            <div className="nav-container">
       <nav className="navbar" onClick={(e) => e.stopPropagation()}>
-        <div className="nav-container">
+
           <NavLink exact to="/" className="nav-logo">
             <img
               src={logo}
@@ -31,6 +31,7 @@ export default function HeaderBar() {
             />
             Parsons Floors
           </NavLink>
+          <div className="menu">
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="nav-item">
               <NavLink
@@ -95,7 +96,7 @@ export default function HeaderBar() {
                 Contact
               </NavLink>
             </li>
-          </ul>
+          </ul></div>
           <div className="mobile-header">
             <div className="nav-icon" onClick={handleClick}>
               <i className={click ? "fa fa-times" : "fa fa-bars"}></i>
@@ -106,9 +107,8 @@ export default function HeaderBar() {
                 <b>(516)484-2323</b>
               </p>
             </div>
-          </div>
+          </div> </nav>
         </div>
-      </nav>
-    </div>
+     
   );
 }

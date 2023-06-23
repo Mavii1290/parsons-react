@@ -117,9 +117,9 @@ export default function Homepage() {
 						/>
 					</div>
 					<Container fluid className="company-info-section">
-						<Row xs={1} sm={1} md={2} lg={3}>
-							<Col>
-								<div className="company-info">
+						<Row xs={1} sm={1} md={2} lg={3} className="company-info-row">
+							<Col className="company-info">
+								
 									<img
 										src={WoodInstall}
 										alt=""
@@ -132,10 +132,10 @@ export default function Homepage() {
 											and exceed your expectations.
 										</p>
 									</div>
-								</div>
+								
 							</Col>
-							<Col>
-								<div className="company-info">
+							<Col className="company-info">
+								
 									<img
 										src={carpetInstall}
 										alt=""
@@ -145,10 +145,10 @@ export default function Homepage() {
 										<h4>Customer Satisfaction Guaranteed</h4>
 										<p>We aim to please! We stand behind our work 100%.</p>
 									</div>
-								</div>
+							
 							</Col>
-							<Col>
-								<div className="company-info experts">
+							<Col className="company-info experts">
+							
 									<img
 										src={womenCarpet1}
 										alt=""
@@ -161,7 +161,7 @@ export default function Homepage() {
 											best design for your needs.
 										</p>
 									</div>
-								</div>
+							
 							</Col>
 						</Row>
 					</Container>

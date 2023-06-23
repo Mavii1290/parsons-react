@@ -1,33 +1,19 @@
-.navbar {
-  width: 100%;
-    background-color: var(--blue);
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-    position: sticky;
-    top: 0;
-    z-index: 20;
-    font-family: var(--base-font);
-    color: var(--white);
-  }
-  
+
   .nav-container {
+      width: 100%;
+  background-color: var(--blue);
+  z-index: 5;
+  position: sticky;
+  top: 0;    
+  font-family: var(--base-font);
+  color: var(--white);
+  }
+  .navbar {
+    font-size: 1.2rem;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 80px;
-  }
-  
-  .main-container{
-    position:absolute;
-    top:0;
-    bottom:0;
-    left:0;
-    right:0;
-    background-color:rgba(0,0,0,0.3);
   }
   .nav-bar-logo {
     width: 50px;
@@ -45,14 +31,14 @@
     text-decoration: none;
     font-size: 1.5rem;
     flex-grow: 1;
-    padding-bottom: 1rem;
+   
   }
   
   .nav-menu {
     display: flex;
     list-style: none;
-    text-align: center;
     margin-right: 1.25rem;
+    margin-top: 1rem;
   }
   
   .nav-links {
@@ -60,7 +46,7 @@
     font-weight: 400;
     text-transform: uppercase;
     text-decoration: none;
-    padding: 0.5rem 1rem;
+    padding: 0 1rem;
     height: 100%;
     border-bottom: 3px solid transparent;
   }
@@ -72,6 +58,7 @@
     text-decoration: none;
   }
   
+
   .fa-code {
     margin-left: 1rem;
   }
@@ -163,6 +150,7 @@
       opacity: 1;
       transition: all 0.5s ease;
       z-index: 1;
+      top: 2.5rem;
     }
     .nav-item .active {
       color: #fff;
@@ -176,7 +164,6 @@
     .nav-icon {
       display: block;
       margin-right:15px;
-      padding-bottom:15px;
       font-size: 1.8rem;
       cursor: pointer;
       color: #fff;
