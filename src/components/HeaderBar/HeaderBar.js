@@ -1,5 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { FaBasketballBall } from 'react-icons/fa';
 
 import "./HeaderBar.css";
 import logo from "./logo.png";
@@ -94,6 +96,15 @@ export default function HeaderBar() {
                 className="nav-links"
               >
                 Contact
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                to="/gym-designer"
+                activeClassName="active"
+                className="nav-links"
+              >
+                Gym Designer
               </NavLink>
             </li>
           </ul></div>

@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+
 import Homepage from "./components/Pages/Homepage/Homepage";
 import About from "./components/Pages/About";
 import Products from "./components/Pages/Products/Products";
@@ -10,6 +11,7 @@ import Contact from "./components/Pages/Contact";
 import Carpet from "./components/Pages/Products/Carpet";
 import VinylTile from "./components/Pages/Products/VinylTile";
 import LuxuryVinyl from "./components/Pages/Products/LuxuryVinyl";
+import GymDesignerPage from './components/Pages/GymDesignerPage/GymDesignerPage';
 
 export default function App() {
 	return (
@@ -28,6 +30,7 @@ export default function App() {
 				<Route path="/About" element={<About />} />
 				<Route path="/Gallery" element={<Gallery />} />
 				<Route path="/Contact" element={<Contact />} />
+				<Route path="/gym-designer" element={<GymDesignerPage />} />
 			</Routes>
 		</BrowserRouter>
 		</>
