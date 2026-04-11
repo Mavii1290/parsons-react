@@ -44,7 +44,7 @@ export default function Footer() {
 					<a href="">Privacy Policy</a>
 				</div>
 				<div className="terms-right">
-					<p>2023</p>
+					<p>2026</p>
 					<p>©ParsonsFloors</p>
 				</div>
 			</div>

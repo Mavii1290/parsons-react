@@ -1,0 +1,382 @@
+import React, { useState, useCallback, useRef, useEffect } from 'react';
+import HeaderBar from "../../HeaderBar/HeaderBar";
+import Footer from "../../Footer/Footer";
+import ConfirmationModal from '../../common/ConfirmationModal';
+import StepNavigation from './StepNavigation';
+import Step1DisplaySize from './steps/Step1DisplaySize';
+import Step2DesignOptions from './steps/Step2DesignOptions';
+import Step3MainCourt from './steps/Step3MainCourt';
+import Step4AdditionalCourts from './steps/Step4AdditionalCourts';
+import Step5Elements from './steps/Step5Elements';
+import Step6Review from './steps/Step6Review';
+import styles from '../../GymDesigner/GymDesigner.module.css';
+
+import gymFloorImage from '../Assets/gym-floor.jpg';
+
+const GymDesignerPage = () => {
+  const canvasRef = useRef(null);
+  const bgImageRef = useRef(null);
+
+  const [currentStep, setCurrentStep] = useState(1);
+  const [showConfirmModal, setShowConfirmModal] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  /* -------------------- STATE -------------------- */
+
+  const [displaySize, setDisplaySize] = useState({
+    type: 'high-school',
+    width: 100,
+    length: 100,
+    zoom: 1
+  });
+
+  const [designOptions, setDesignOptions] = useState({
+    borderSize: 3,
+    borderColorTop: '#000000',
+    borderColorBottom: '#000000',
+    borderColorLeft: '#000000',
+    borderColorRight: '#000000',
+    lineColor: '#FFFFFF',
+    courtInteriorColor: '#D2691E',
+    keyColor: '#CD853F',
+    keyArchColor: '#A0522D',
+    threePointFillColor: '#4169E1',
+    centerCourtLogo: null,
+    additionalLogos: [],
+    gridLines: true,
+    borderFont: 'Arial'
+  });
+
+  const [mainCourt, setMainCourt] = useState({
+    enabled: true,
+    width: 84,
+    length: 50,
+    type: 'basketball',
+    showKey: true,
+    showKeyArch: true,
+    showThreePoint: true,
+    showCenterCircle: true
+  });
+
+  const [additionalCourts, setAdditionalCourts] = useState({
+    sideBasketball: { enabled: false, width: 84, length: 50 },
+    volleyball: { enabled: false, width: 59, length: 118 },
+    badminton: { enabled: false, width: 44, length: 88 },
+    pickleball: { enabled: false, width: 44, length: 88 }
+  });
+
+  const [elements, setElements] = useState({
+    bowlingPinMarkers: { enabled: false, count: 10 },
+    baseballBases: { enabled: false },
+    numbersAndLetters: { enabled: false, range: '1-24', current: '' },
+    agilityLadder: { enabled: false, length: 15 },
+    agilityDots: { enabled: false, count: 10 }
+  });
+
+  const totalSteps = 6;
+
+  /* -------------------- IMAGE LOAD (ONCE) -------------------- */
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = gymFloorImage;
+    img.onload = () => {
+      bgImageRef.current = img;
+      setImageLoaded(true);
+    };
+    img.onerror = () => {
+      console.warn('Gym floor image failed to load');
+      setImageLoaded(true);
+    };
+  }, []);
+
+  /* -------------------- DRAWING -------------------- */
+
+  const drawCourt = useCallback(() => {
+    if (!canvasRef.current || !imageLoaded) return;
+
+    const ctx = canvasRef.current.getContext('2d');
+    const { width, height } = ctx.canvas;
+
+    ctx.clearRect(0, 0, width, height);
+
+    // 1️⃣ Background
+    drawImageBackground(ctx, width, height);
+
+    ctx.save();
+    ctx.scale(displaySize.zoom, displaySize.zoom);
+
+    // 2️⃣ Court fill
+    if (mainCourt.enabled) {
+      drawMainCourtBackground(ctx, width, height);
+    }
+
+    // 3️⃣ Lines
+    drawAllCourtLines(ctx, width, height);
+
+    // 4️⃣ Elements
+    drawElements(ctx, width, height);
+
+    // 5️⃣ Logos & text
+    drawDesignOptions(ctx, width, height);
+
+    ctx.restore();
+
+    // 6️⃣ Grid (top layer)
+    if (designOptions.gridLines) {
+      drawGridLines(ctx, width, height);
+    }
+  }, [displaySize, mainCourt, designOptions, elements, imageLoaded]);
+
+  useEffect(() => {
+    drawCourt();
+  }, [drawCourt]);
+
+  /* -------------------- DRAW HELPERS -------------------- */
+
+  const drawImageBackground = (ctx, width, height) => {
+    if (bgImageRef.current) {
+      ctx.drawImage(bgImageRef.current, 0, 0, width, height);
+    } else {
+      const gradient = ctx.createLinearGradient(0, 0, width, height);
+      gradient.addColorStop(0, '#D2691E');
+      gradient.addColorStop(1, '#CD853F');
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, width, height);
+    }
+  };
+
+  const drawMainCourtBackground = (ctx, canvasWidth, canvasHeight) => {
+    const margin = 50;
+    const courtWidth = mainCourt.width * (canvasWidth - margin * 2) / displaySize.width;
+    const courtHeight = mainCourt.length * (canvasHeight - margin * 2) / displaySize.length;
+
+    const x = margin + (canvasWidth - margin * 2 - courtWidth) / 2;
+    const y = margin + (canvasHeight - margin * 2 - courtHeight) / 2;
+
+    ctx.fillStyle = designOptions.courtInteriorColor;
+    ctx.fillRect(x, y, courtWidth, courtHeight);
+  };
+
+const drawAllCourtLines = (ctx, canvasWidth, canvasHeight) => {
+  if (!mainCourt.enabled) return;
+
+  const margin = 50;
+  const courtWidth =
+    (mainCourt.width * (canvasWidth - margin * 2)) / displaySize.width;
+  const courtHeight =
+    (mainCourt.length * (canvasHeight - margin * 2)) / displaySize.length;
+
+  const startX =
+    margin + (canvasWidth - margin * 2 - courtWidth) / 2;
+  const startY =
+    margin + (canvasHeight - margin * 2 - courtHeight) / 2;
+
+  ctx.strokeStyle = designOptions.lineColor;
+  ctx.lineWidth = 4 / displaySize.zoom;
+
+  // 🔑 contrast
+  ctx.shadowColor = 'rgba(0,0,0,0.5)';
+  ctx.shadowBlur = 2;
+
+  // Court outline
+  ctx.strokeRect(startX, startY, courtWidth, courtHeight);
+
+  // Center line
+  ctx.beginPath();
+  ctx.moveTo(startX, startY + courtHeight / 2);
+  ctx.lineTo(startX + courtWidth, startY + courtHeight / 2);
+  ctx.stroke();
+
+  // Center circle
+  if (mainCourt.showCenterCircle) {
+    ctx.beginPath();
+    ctx.arc(
+      startX + courtWidth / 2,
+      startY + courtHeight / 2,
+      60,
+      0,
+      Math.PI * 2
+    );
+    ctx.stroke();
+  }
+
+  // Reset shadow
+  ctx.shadowColor = 'transparent';
+  ctx.shadowBlur = 0;
+};
+
+const drawElements = (ctx, canvasWidth, canvasHeight) => {
+  if (elements.bowlingPinMarkers.enabled) {
+    const pinCount = elements.bowlingPinMarkers.count;
+    const startX = 100;
+    const startY = canvasHeight - 100;
+    const spacing = 30;
+
+    for (let i = 0; i < pinCount; i++) {
+      const x = startX + (i % 5) * spacing;
+      const y = startY - Math.floor(i / 5) * spacing;
+
+      ctx.fillStyle = '#FFFFFF';
+      ctx.beginPath();
+      ctx.arc(x, y, 8, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.strokeStyle = '#000000';
+      ctx.lineWidth = 2 / displaySize.zoom;
+      ctx.stroke();
+    }
+  }
+
+  if (elements.baseballBases.enabled) {
+    const baseSize = 20;
+    const homeX = 150;
+    const homeY = canvasHeight - 150;
+
+    ctx.fillStyle = '#FFFFFF';
+    ctx.beginPath();
+    ctx.moveTo(homeX, homeY);
+    ctx.lineTo(homeX + baseSize, homeY);
+    ctx.lineTo(homeX + baseSize / 2, homeY - baseSize);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+  }
+};
+const drawDesignOptions = (ctx, width, height) => {
+  if (designOptions.centerCourtLogo && mainCourt.enabled) {
+    const margin = 50;
+    const courtWidth =
+      (mainCourt.width * (width - margin * 2)) / displaySize.width;
+    const courtHeight =
+      (mainCourt.length * (height - margin * 2)) / displaySize.length;
+
+    const centerX = width / 2;
+    const centerY = height / 2;
+
+    const logo = new Image();
+    logo.src = designOptions.centerCourtLogo;
+
+    if (logo.complete) {
+      ctx.drawImage(logo, centerX - 40, centerY - 40, 80, 80);
+    } else {
+      logo.onload = () => {
+        ctx.drawImage(logo, centerX - 40, centerY - 40, 80, 80);
+      };
+    }
+  }
+
+  ctx.font = `24px ${designOptions.borderFont}`;
+  ctx.fillStyle = designOptions.borderColorTop;
+  ctx.textAlign = 'center';
+  ctx.fillText('MAIN COURT', width / 2, 40);
+
+  ctx.fillStyle = designOptions.borderColorBottom;
+  ctx.fillText('MILBURN FLOORING', width / 2, height - 20);
+};
+
+const drawGridLines = (ctx, width, height) => {
+  ctx.strokeStyle = 'rgba(255,255,255,0.2)';
+  ctx.lineWidth = 1 / displaySize.zoom;
+
+  const gridSize = 50;
+
+  for (let x = 0; x <= width; x += gridSize) {
+    ctx.beginPath();
+    ctx.moveTo(x, 0);
+    ctx.lineTo(x, height);
+    ctx.stroke();
+  }
+
+  for (let y = 0; y <= height; y += gridSize) {
+    ctx.beginPath();
+    ctx.moveTo(0, y);
+    ctx.lineTo(width, y);
+    ctx.stroke();
+  }
+};
+
+
+  /* -------------------- STEP RENDERING -------------------- */
+
+  const nextStep = () => currentStep < totalSteps && setCurrentStep(s => s + 1);
+  const prevStep = () => currentStep > 1 && setCurrentStep(s => s - 1);
+  const goToStep = step => setCurrentStep(step);
+
+  const renderCurrentStep = () => {
+    const stepProps = {
+      displaySize,
+      setDisplaySize,
+      designOptions,
+      setDesignOptions,
+      mainCourt,
+      setMainCourt,
+      additionalCourts,
+      setAdditionalCourts,
+      elements,
+      setElements,
+      nextStep,
+      prevStep,
+      goToStep
+    };
+
+    switch (currentStep) {
+      case 1: return <Step1DisplaySize {...stepProps} />;
+      case 2: return <Step2DesignOptions {...stepProps} />;
+      case 3: return <Step3MainCourt {...stepProps} />;
+      case 4: return <Step4AdditionalCourts {...stepProps} />;
+      case 5: return <Step5Elements {...stepProps} />;
+      case 6: return <Step6Review {...stepProps} />;
+      default: return <Step1DisplaySize {...stepProps} />;
+    }
+  };
+
+  /* -------------------- UI -------------------- */
+
+  return (
+    <>
+      <HeaderBar />
+
+      <div className={styles.pageWrapper}>
+        <StepNavigation
+          currentStep={currentStep}
+          totalSteps={totalSteps}
+          onStepClick={goToStep}
+        />
+
+        <div className={styles.designerContainer}>
+          <div className={styles.stepPanel}>
+            {renderCurrentStep()}
+          </div>
+
+          <div className={styles.canvasContainer}>
+            <canvas
+              ref={canvasRef}
+              width={800}
+              height={500}
+              className={styles.canvas}
+            />
+
+            <div className={styles.canvasInfo}>
+              <span>{displaySize.width}ft × {displaySize.length}ft</span>
+              <span>{(displaySize.width * displaySize.length).toLocaleString()} sq ft</span>
+              <span>Zoom: {displaySize.zoom}x</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <Footer />
+
+      <ConfirmationModal
+        show={showConfirmModal}
+        onHide={() => setShowConfirmModal(false)}
+        onConfirm={() => setShowConfirmModal(false)}
+        title="Reset Design"
+        message="Are you sure you want to reset your design?"
+      />
+    </>
+  );
+};
+
+export default GymDesignerPage;
