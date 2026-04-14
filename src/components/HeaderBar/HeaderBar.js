@@ -62,15 +62,39 @@ export default function HeaderBar() {
                 )}
               </NavLink>
             </li>
-            <li className="nav-item">
+
+  <li className="nav-item">
               <NavLink
-                to="/Services"
+                to="/Servcies"
                 activeClassName="active"
-                className="nav-links"
+                className={`nav-links ${dropdownOpen ? "dropdown-open" : ""}`}
+                onMouseEnter={toggleDropdown}
+                onMouseLeave={toggleDropdown}
               >
                 Services
+                {dropdownOpen && (
+                  <ul className="dropdown-menu">
+                    <NavLink 
+					to="/Installation Services"
+					activeClassName="active"
+					className="products-links"><li className="nav-item">Installation Services</li></NavLink>
+                    <NavLink
+					to="/Design/Consultation"
+					activeClassName="active"
+					className="products-links"><li className="nav-item">Design Consultation</li></NavLink>
+                    <NavLink
+					to="/Annual Maintenance"
+					activeClassName="active"
+					className="products-links"><li className="nav-item">Annual Maintenance</li></NavLink>
+           <NavLink
+					to="/Repair & Replacement"
+					activeClassName="active"
+					className="products-links"><li className="nav-item">Repair & Replacement</li></NavLink>
+                  </ul>
+                )}
               </NavLink>
             </li>
+
             <li className="nav-item">
               <NavLink
                 to="/Gallery"
