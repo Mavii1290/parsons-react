@@ -62,7 +62,15 @@ export default function HeaderBar() {
                 )}
               </NavLink>
             </li>
-
+           <li className="nav-item">
+              <NavLink
+                to="/About"
+                activeClassName="active"
+                className="nav-links"
+              >
+                About Us
+              </NavLink>
+            </li>
   <li className="nav-item">
               <NavLink
                 to="/Servcies"
@@ -101,18 +109,10 @@ export default function HeaderBar() {
                 activeClassName="active"
                 className="nav-links"
               >
-                Inspiration
+                Portfolio
               </NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink
-                to="/About"
-                activeClassName="active"
-                className="nav-links"
-              >
-                About Us
-              </NavLink>
-            </li>
+ 
             <li className="nav-item">
               <NavLink
                 to="/Contact"
