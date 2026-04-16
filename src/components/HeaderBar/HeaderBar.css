@@ -211,19 +211,20 @@
 .nav-links:has(.dropdown-menu):hover::after {
   transform: translateY(-48%) rotate(180deg);
 }
+/* ==================== DROPDOWN MENU STYLING ==================== */
 
-/* Dropdown menu positioning & styling */
 .dropdown-menu {
   display: none;
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: var(--dark-blue);
-  padding: 10px;
-  border: 1px solid #ccc;
-  min-width: 400px;
+  background-color: var(--blue);  /* Same blue as navbar */
+  padding: 0;
+  border: none;
+  min-width: 250px;
   z-index: 1000;
   list-style: none;
+  margin: 0;
 }
 
 /* Show the dropdown when hovering the link */
@@ -231,7 +232,32 @@
   display: block;
 }
 
-/* Optional: submenu item hover effect */
+/* Style each dropdown item */
+.dropdown-menu li {
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-menu li:last-child {
+  border-bottom: none;
+}
+
+/* Style the links inside dropdown */
+.dropdown-menu .products-links {
+  display: block;
+  font-family: var(--base-font);
+  font-size: 1rem;
+  font-weight: 400;
+  text-decoration: none;
+  color: var(--white);  /* White text */
+  background-color: var(--blue);  /* Same blue as navbar */
+  padding: 12px 20px;
+  white-space: nowrap;  /* Keeps text on one line */
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for dropdown items */
 .dropdown-menu .products-links:hover {
-  background-color: rgba(255, 255, 255, 0.12);
+  background-color: var(--dark-blue);
 }

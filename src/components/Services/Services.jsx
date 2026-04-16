@@ -5,6 +5,8 @@ import "./Services.css";
 import HeaderBar from "../HeaderBar/HeaderBar";
 import Footer from "../Footer/Footer";
 
+
+
 const OurServices = () => {
 	return (
 		<div className="services-page">
@@ -34,7 +36,7 @@ const OurServices = () => {
 						</div>
 						<div className="intro-image">
 							<img
-								src="../Pages/Assets/Services/services-intro.png"
+								src="../Assets/Services/services-intro.png"
 								alt="Professional flooring installation"
 							/>
 						</div>
@@ -49,7 +51,7 @@ const OurServices = () => {
 					<div className="service-card">
 						<div className="service-image">
 							<img
-								src="../Pages/Assets/Services/commercial-flooring.png"
+								src="../Assets/Services/commercial-flooring.png"
 								alt="Commercial flooring installation"
 							/>
 						</div>

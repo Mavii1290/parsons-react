@@ -1,0 +1,137 @@
+.services-cards-section {
+  padding: 80px 20px;
+  background: white;
+}
+
+.services-cards-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.services-cards-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.services-cards-label {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #1a5490;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.services-cards-header h2 {
+  font-size: 2.8rem;
+  color: #1a5490;
+  font-weight: 700;
+  margin: 0;
+}
+
+.services-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.service-card-link {
+  text-decoration: none;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.service-card-link:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.service-card-image-wrapper {
+  position: relative;
+  padding-bottom: 75%; /* 4:3 aspect ratio */
+  overflow: hidden;
+}
+
+.service-card-image-wrapper img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.service-card-link:hover .service-card-image-wrapper img {
+  transform: scale(1.1);
+}
+
+.service-card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.service-card-overlay h3 {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.service-card-arrow {
+  color: white;
+  font-size: 2rem;
+  font-weight: 300;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+}
+
+.service-card-link:hover .service-card-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (max-width: 968px) {
+  .services-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .service-card-image-wrapper {
+    padding-bottom: 60%;
+  }
+
+  .services-cards-header h2 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .services-cards-section {
+    padding: 50px 20px;
+  }
+
+  .services-cards-header h2 {
+    font-size: 2rem;
+  }
+
+  .service-card-overlay h3 {
+    font-size: 1.5rem;
+  }
+
+  .service-card-overlay {
+    padding: 20px;
+  }
+}

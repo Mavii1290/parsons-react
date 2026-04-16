@@ -1,6 +1,29 @@
 .homepage-container{
 	max-width: 100%;
 }
+
+/* ADD THIS SECTION */
+/* ==================== CAROUSEL FIXES ==================== */
+.homepage-container .carousel {
+  height: 600px;
+  margin-bottom: 0;
+}
+
+.homepage-container .carousel-inner {
+  height: 600px;
+}
+
+.homepage-container .carousel-item {
+  height: 600px;
+}
+
+.homepage-container .carousel-item img {
+  height: 600px;
+  width: 100%;
+  object-fit: cover;
+}
+/* ==================== END CAROUSEL FIXES ==================== */
+
 .carousel-text{
 	background-color: rgba(0, 0, 0, 0.5);
 	backdrop-filter: blur(2px);
@@ -153,6 +176,14 @@
 	.carousel-text{
 		bottom:8rem;
 	}
+	
+	/* Add this: */
+	.homepage-container .carousel,
+	.homepage-container .carousel-inner,
+	.homepage-container .carousel-item,
+	.homepage-container .carousel-item img {
+		height: 400px;
+	}
 
 	.carousel-caption{
 		padding-top: 0;
@@ -161,7 +192,6 @@
 	.company-info-text-cust h4 {
 		width: 85%;
 	}
-
 }
 @media screen and (width < 768px){
 	.photo-overlay-mobile {
