@@ -1,0 +1,273 @@
+/* Services Page Styles */
+
+.services-page {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  color: #333;
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  height: 400px;
+  background: linear-gradient(135deg, #1a5490 0%, #2d6ba8 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/images/flooring-hero.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3;
+}
+
+.hero-overlay {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: white;
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  font-weight: 300;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Introduction Section */
+.intro-section {
+  padding: 80px 0;
+  background: #f8f9fa;
+}
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.intro-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #1a5490;
+  font-weight: 700;
+}
+
+.intro-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+.intro-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Services Cards Section */
+.services-cards {
+  padding: 80px 0;
+  background: white;
+}
+
+.service-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 80px;
+  align-items: center;
+}
+
+.service-card.reverse {
+  direction: rtl;
+}
+
+.service-card.reverse > * {
+  direction: ltr;
+}
+
+.service-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  max-height: 500px;
+}
+
+.service-content {
+  padding: 20px;
+}
+
+.service-content h2 {
+  font-size: 2.2rem;
+  color: #1a5490;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.service-content p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.service-link {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: #1a5490;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.service-link:hover {
+  background-color: #2d6ba8;
+}
+
+/* CTA Section */
+.cta-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #1a5490 0%, #2d6ba8 100%);
+  color: white;
+  text-align: center;
+}
+
+.cta-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.cta-content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+.cta-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 15px 40px;
+  background-color: white;
+  color: #1a5490;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Experts Section */
+.experts-section {
+  padding: 60px 0;
+  background: #f8f9fa;
+  text-align: center;
+}
+
+.experts-section h2 {
+  font-size: 1.8rem;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .intro-grid,
+  .service-card,
+  .service-card.reverse {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .intro-text h2,
+  .service-content h2 {
+    font-size: 2rem;
+  }
+
+  .cta-content h2 {
+    font-size: 2rem;
+  }
+
+  .cta-content h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-section {
+    height: 300px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .intro-section,
+  .services-cards,
+  .cta-section {
+    padding: 50px 0;
+  }
+
+  .intro-text h2,
+  .service-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .intro-text p,
+  .service-content p {
+    font-size: 1rem;
+  }
+
+  .service-card {
+    margin-bottom: 50px;
+  }
+}

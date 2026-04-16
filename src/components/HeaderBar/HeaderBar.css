@@ -186,3 +186,52 @@
       transform: translate(-50%, -50%);
     }
   }
+
+  /* ==================== PERMANENT DOWN ARROW (Always Visible) ==================== */
+
+.nav-links {
+  position: relative;
+  padding-right: 1.9rem;        /* Extra space on the right for the arrow */
+}
+
+/* Permanent down arrow - only on dropdown links */
+.nav-links:has(.dropdown-menu)::after {
+  content: "▼";
+  position: absolute;
+  right: 0.7rem;
+  top: 50%;
+  transform: translateY(-48%);
+  font-size: 0.75rem;
+  opacity: 0.9;
+  pointer-events: none;         /* So it doesn't interfere with clicks */
+  transition: transform 0.3s ease;
+}
+
+/* Optional: rotate the arrow when hovering (nice feedback) */
+.nav-links:has(.dropdown-menu):hover::after {
+  transform: translateY(-48%) rotate(180deg);
+}
+
+/* Dropdown menu positioning & styling */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--dark-blue);
+  padding: 10px;
+  border: 1px solid #ccc;
+  min-width: 400px;
+  z-index: 1000;
+  list-style: none;
+}
+
+/* Show the dropdown when hovering the link */
+.nav-links:hover > .dropdown-menu {
+  display: block;
+}
+
+/* Optional: submenu item hover effect */
+.dropdown-menu .products-links:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
