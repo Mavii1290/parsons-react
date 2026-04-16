@@ -11,7 +11,7 @@
 .detail-hero {
   position: relative;
   height: 350px;
-  background: linear-gradient(135deg, #1a5490 0%, #2d6ba8 100%);
+  background: linear-gradient(135deg, #273879 0%, #2d6ba8 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,18 +25,18 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('/images/commercial-hero.jpg');
+  background-image: url('../Pages/Assets/Services/commercial-hero.png');
   background-size: cover;
   background-position: center;
   opacity: 0.3;
 }
 
 .sports-hero::before {
-  background-image: url('/images/sports-hero.jpg');
+  background-image: url('../Pages/Assets/Services/sports-hero.png');
 }
 
 .epoxy-hero::before {
-  background-image: url('/images/epoxy-hero.jpg');
+  background-image: url('../Pages/Assets/Services/epoxy-hero.png');
 }
 
 .detail-hero .hero-overlay {
@@ -96,14 +96,14 @@
 
 .main-content h2 {
   font-size: 2.5rem;
-  color: #1a5490;
+  color: #273879;
   margin-bottom: 1.5rem;
   font-weight: 700;
 }
 
 .main-content h3 {
   font-size: 1.8rem;
-  color: #1a5490;
+  color: #273879;
   margin: 2.5rem 0 1.5rem;
   font-weight: 600;
 }
@@ -147,7 +147,7 @@
   padding: 25px;
   background: #f8f9fa;
   border-radius: 8px;
-  border-left: 4px solid #1a5490;
+  border-left: 4px solid #273879;
 }
 
 .feature-item h4 {
@@ -178,13 +178,13 @@
   content: '→';
   position: absolute;
   left: 0;
-  color: #1a5490;
+  color: #273879;
   font-weight: 700;
 }
 
 /* Stats Section */
 .stats-section {
-  background: linear-gradient(135deg, #1a5490 0%, #2d6ba8 100%);
+  background: linear-gradient(135deg, #273879 0%, #2d6ba8 100%);
   color: white;
   padding: 50px;
   border-radius: 8px;
@@ -235,13 +235,13 @@
 }
 
 .system-card:hover {
-  border-color: #1a5490;
+  border-color: #273879;
   box-shadow: 0 5px 15px rgba(26, 84, 144, 0.1);
 }
 
 .system-card h4 {
   margin-top: 0;
-  color: #1a5490;
+  color: #273879;
 }
 
 .system-card p {
@@ -267,7 +267,7 @@
 
 .benefit-icon {
   font-size: 1.5rem;
-  color: #1a5490;
+  color: #273879;
   font-weight: 700;
   flex-shrink: 0;
 }
@@ -284,7 +284,7 @@
 
 /* CTA Box */
 .cta-box {
-  background: linear-gradient(135deg, #1a5490 0%, #2d6ba8 100%);
+  background: linear-gradient(135deg, #273879 0%, #2d6ba8 100%);
   color: white;
   padding: 50px;
   border-radius: 8px;
@@ -306,7 +306,7 @@
   display: inline-block;
   padding: 15px 40px;
   background-color: white;
-  color: #1a5490;
+  color: #273879;
   text-decoration: none;
   border-radius: 4px;
   font-weight: 700;
@@ -333,7 +333,7 @@
 
 .sidebar-card h3 {
   font-size: 1.5rem;
-  color: #1a5490;
+  color: #273879;
   margin-top: 0;
   margin-bottom: 1.5rem;
 }
@@ -361,19 +361,19 @@
 }
 
 .services-menu a:hover {
-  background: #1a5490;
+  background: #273879;
   color: white;
   padding-left: 20px;
 }
 
 .services-menu li.active a {
-  background: #1a5490;
+  background: #273879;
   color: white;
 }
 
 /* Contact Card */
 .contact-card {
-  background: linear-gradient(135deg, #1a5490 0%, #2d6ba8 100%);
+  background: linear-gradient(135deg, #273879 0%, #2d6ba8 100%);
   color: white;
 }
 
@@ -395,7 +395,7 @@
   display: block;
   padding: 12px 25px;
   background: white;
-  color: #1a5490;
+  color: #273879;
   text-align: center;
   text-decoration: none;
   border-radius: 4px;
@@ -422,14 +422,14 @@
   display: block;
   padding: 10px 15px;
   background: white;
-  color: #1a5490;
+  color: #273879;
   text-decoration: none;
   border-radius: 4px;
   transition: all 0.3s ease;
 }
 
 .download-list a:hover {
-  background: #1a5490;
+  background: #273879;
   color: white;
 }
 
@@ -452,7 +452,7 @@
 
 .view-all-link {
   display: inline-block;
-  color: #1a5490;
+  color: #273879;
   text-decoration: none;
   font-weight: 600;
   margin-top: 10px;
@@ -469,7 +469,7 @@
 
 .info-link {
   display: inline-block;
-  color: #1a5490;
+  color: #273879;
   text-decoration: none;
   font-weight: 600;
   margin-top: 10px;

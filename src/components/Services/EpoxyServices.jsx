@@ -2,21 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './ServiceDetail.css';
 
+import HeaderBar from '../HeaderBar/HeaderBar';
+import Footer from '../Footer/Footer';
+
 const EpoxyServices = () => {
   return (
     <div className="service-detail-page">
-      {/* Hero Section */}
+      <HeaderBar />
       <section className="detail-hero epoxy-hero">
         <div className="hero-overlay">
           <div className="hero-content">
             <h1>Epoxy Services</h1>
-            <nav className="breadcrumb">
-              <Link to="/">Home</Link>
-              <span>/</span>
-              <Link to="/services">Services</Link>
-              <span>/</span>
-              <span>Epoxy Services</span>
-            </nav>
           </div>
         </div>
       </section>
@@ -238,6 +234,7 @@ const EpoxyServices = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 };

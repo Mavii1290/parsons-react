@@ -1,0 +1,511 @@
+/* Services Landing Page Styles */
+
+.services-landing-page {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  color: #333;
+}
+
+/* Hero Section */
+.landing-hero {
+  position: relative;
+  height: 500px;
+  background: linear-gradient(135deg, #273879 0%, #2d6ba8 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.landing-hero .hero-overlay {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: white;
+  max-width: 900px;
+  padding: 0 20px;
+}
+
+.landing-hero h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  margin: 0 0 1.5rem;
+  letter-spacing: -1px;
+}
+
+.landing-hero .hero-subtitle {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+  font-weight: 300;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Introduction Section */
+.landing-intro {
+  padding: 80px 0;
+  background: white;
+  text-align: center;
+}
+
+.intro-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.intro-content h2 {
+  font-size: 2.8rem;
+  color: #273879;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.intro-content p {
+  font-size: 1.15rem;
+  line-height: 1.9;
+  color: #555;
+}
+
+/* Service Sections */
+.service-section {
+  padding: 100px 0;
+}
+
+.service-section:nth-child(odd) {
+  background: #f8f9fa;
+}
+
+.service-section:nth-child(even) {
+  background: white;
+}
+
+.service-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.service-layout.reverse {
+  direction: rtl;
+}
+
+.service-layout.reverse > * {
+  direction: ltr;
+}
+
+.service-number {
+  font-size: 5rem;
+  font-weight: 700;
+  color: #273879;
+  opacity: 0.15;
+  line-height: 1;
+  margin-bottom: -30px;
+}
+
+.service-text h2 {
+  font-size: 2.8rem;
+  color: #273879;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.service-text h3 {
+  font-size: 1.8rem;
+  color: #273879;
+  margin: 3rem 0 1.5rem;
+  font-weight: 600;
+}
+
+.service-text h4 {
+  font-size: 1.3rem;
+  color: #2d6ba8;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.service-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.service-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* Installation Features */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  margin-top: 2rem;
+}
+
+.feature-box {
+  padding: 25px;
+  background: white;
+  border-radius: 8px;
+  border-left: 4px solid #273879;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.feature-box h4 {
+  margin: 0 0 0.5rem;
+  color: #273879;
+}
+
+.feature-box p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+/* Design Benefits */
+.benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.benefits-list li {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  align-items: flex-start;
+}
+
+.check-icon {
+  font-size: 1.5rem;
+  color: #273879;
+  font-weight: 700;
+  flex-shrink: 0;
+  background: #e8f4fd;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.benefits-list strong {
+  display: block;
+  color: #273879;
+  margin-bottom: 0.25rem;
+  font-size: 1.1rem;
+}
+
+.benefits-list p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* Maintenance Services */
+.services-columns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  margin: 2rem 0;
+}
+
+.services-column h4 {
+  color: #273879;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+
+.services-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.services-column li {
+  padding: 10px 0 10px 30px;
+  position: relative;
+  font-size: 1rem;
+  color: #555;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.services-column li:last-child {
+  border-bottom: none;
+}
+
+.services-column li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #273879;
+  font-weight: 700;
+}
+
+/* Maintenance Benefits Cards */
+.benefit-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 2rem;
+}
+
+.benefit-card {
+  text-align: center;
+  padding: 30px 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.benefit-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.benefit-card h4 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.benefit-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Repair Grid */
+.repair-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin: 2rem 0;
+}
+
+.repair-item {
+  padding: 30px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.repair-item h4 {
+  color: #273879;
+  margin: 0 0 1rem;
+  font-size: 1.3rem;
+}
+
+.repair-item ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.repair-item li {
+  padding: 8px 0 8px 25px;
+  position: relative;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.repair-item li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #273879;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.repair-cta {
+  margin-top: 3rem;
+  padding: 30px;
+  background: #e8f4fd;
+  border-left: 4px solid #273879;
+  border-radius: 8px;
+}
+
+.cta-text {
+  font-size: 1.2rem;
+  color: #273879;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Final CTA Section */
+.final-cta {
+  padding: 100px 0;
+  background: linear-gradient(135deg, #273879 0%, #2d6ba8 100%);
+  color: white;
+  text-align: center;
+}
+
+.final-cta h2 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.final-cta p {
+  font-size: 1.3rem;
+  max-width: 800px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.8;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 18px 45px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.cta-button.primary {
+  background-color: white;
+  color: #273879;
+}
+
+.cta-button.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button.secondary {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.cta-button.secondary:hover {
+  background-color: white;
+  color: #273879;
+  transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .landing-hero h1 {
+    font-size: 3rem;
+  }
+
+  .landing-hero .hero-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .service-layout {
+    gap: 60px;
+  }
+
+  .benefit-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .landing-hero {
+    height: 400px;
+  }
+
+  .landing-hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .service-section {
+    padding: 60px 0;
+  }
+
+  .service-layout,
+  .service-layout.reverse {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .service-text h2 {
+    font-size: 2.2rem;
+  }
+
+  .feature-grid,
+  .services-columns,
+  .repair-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .benefit-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .final-cta h2 {
+    font-size: 2.2rem;
+  }
+
+  .final-cta p {
+    font-size: 1.1rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 640px) {
+  .landing-hero {
+    height: 350px;
+  }
+
+  .landing-hero h1 {
+    font-size: 2rem;
+  }
+
+  .landing-hero .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .intro-content h2 {
+    font-size: 2rem;
+  }
+
+  .service-number {
+    font-size: 3rem;
+  }
+
+  .service-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .service-text h3 {
+    font-size: 1.5rem;
+  }
+
+  .landing-intro,
+  .service-section {
+    padding: 50px 0;
+  }
+}

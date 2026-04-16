@@ -15,6 +15,7 @@ import Services from './components//Services/Services';
 import CommercialFlooring from './components/Services/CommercialFlooring';
 import SportsFlooring from './components/Services/SportsFlooring';
 import EpoxyServices from './components/Services/EpoxyServices';
+import InstallRepair from './components/Services/InstallRepair';
 
 
 
@@ -35,6 +36,8 @@ export default function App() {
 				<Route path="/services/commercial-flooring" element={<CommercialFlooring />} />
 				<Route path="/services/sports-flooring" element={<SportsFlooring />} />
 				<Route path="/services/epoxy" element={<EpoxyServices />} />
+				<Route path="/services/install-repair" element={<InstallRepair />} />
+
 				<Route path="/About" element={<About />} />
 				<Route path="/Gallery" element={<Gallery />} />
 				<Route path="/Contact" element={<Contact />} />

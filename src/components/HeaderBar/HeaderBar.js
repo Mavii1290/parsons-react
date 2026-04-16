@@ -54,10 +54,10 @@ export default function HeaderBar() {
                 Services
                 {servicesOpen && (
                   <ul className="dropdown-menu">
-                    <li><NavLink to="/Installation Services" className="products-links" activeClassName="active">Installation Services</NavLink></li>
-                    <li><NavLink to="/Design/Consultation" className="products-links" activeClassName="active">Design Consultation</NavLink></li>
-                    <li><NavLink to="/Annual Maintenance" className="products-links" activeClassName="active">Annual Maintenance</NavLink></li>
-                    <li><NavLink to="/Repair & Replacement" className="products-links" activeClassName="active">Repair & Replacement</NavLink></li>
+                    <li><NavLink to="/services/commercial-flooring" className="products-links" activeClassName="active">Commercial Flooring Services</NavLink></li>
+                    <li><NavLink to="/services/sports-flooring" className="products-links" activeClassName="active">Sports Flooring Services</NavLink></li>
+                    <li><NavLink to="/services/epoxy" className="products-links" activeClassName="active">Epoxy Services</NavLink></li>
+                    <li><NavLink to="/services/install-repair" className="products-links" activeClassName="active">Installation & Repair Services</NavLink></li>
                   </ul>
                 )}
               </NavLink>

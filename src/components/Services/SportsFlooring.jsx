@@ -2,20 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './ServiceDetail.css';
 
+
+import HeaderBar from '../HeaderBar/HeaderBar';
+import Footer from '../Footer/Footer';
+
 const SportsFlooring = () => {
   return (
     <div className="service-detail-page">
+      <HeaderBar />
       <section className="detail-hero sports-hero">
         <div className="hero-overlay">
           <div className="hero-content">
             <h1>Sports Flooring Services</h1>
-            <nav className="breadcrumb">
-              <Link to="/">Home</Link>
-              <span>/</span>
-              <Link to="/services">Services</Link>
-              <span>/</span>
-              <span>Sports Flooring</span>
-            </nav>
           </div>
         </div>
       </section>
