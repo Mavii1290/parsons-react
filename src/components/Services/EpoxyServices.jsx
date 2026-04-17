@@ -5,6 +5,8 @@ import './ServiceDetail.css';
 import HeaderBar from '../HeaderBar/HeaderBar';
 import Footer from '../Footer/Footer';
 
+import epoxyDetail from '../Pages/Assets/Services/epoxy-details-1.png';
+
 const EpoxyServices = () => {
   return (
     <div className="service-detail-page">
@@ -34,7 +36,7 @@ const EpoxyServices = () => {
 
               <div className="feature-image">
                 <img 
-                  src="/images/epoxy-detail-1.jpg" 
+                  src={epoxyDetail} 
                   alt="Professional epoxy flooring installation" 
                 />
               </div>
@@ -200,8 +202,8 @@ const EpoxyServices = () => {
               <div className="sidebar-card contact-card">
                 <h3>Need Help?</h3>
                 <p>Our epoxy coating specialists are ready to answer your questions.</p>
-                <a href="tel:555-123-4567" className="phone-link">
-                  (555) 123-4567
+                <a href="tel:516-484-2323" className="phone-link">
+                  (516)484-2323
                 </a>
                 <Link to="/contact" className="contact-button">
                   Contact Us

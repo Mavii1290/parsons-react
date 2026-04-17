@@ -2,36 +2,42 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './ProjectGallerySection.css';
 
+import gallery1 from '../../Assets/Homepage/gallery-1.jpg';
+import gallery2 from '../../Assets/Homepage/gallery-2.jpg';
+import gallery3 from '../../Assets/Homepage/gallery-3.jpg';
+import gallery4 from '../../Assets/Homepage/gallery-4.jpg';
+import gallery5 from '../../Assets/Homepage/gallery-5.jpg';
+
 const ProjectGallerySection = () => {
   const projects = [
     {
       title: 'Senior Living Facility',
       category: 'Senior Living',
-      image: '../../Assets/Homepage/gallery-1.jpg',
+      image: {gallery1},
       link: '/gallery/senior-living'
     },
     {
       title: 'Commercial Epoxy Installation',
       category: 'Epoxy Services',
-      image: '../../Assets/Homepage/gallery-2.jpg',
+      image: {gallery2},
       link: '/gallery/epoxy-commercial'
     },
     {
       title: 'University Recreation Center',
       category: 'Higher Education',
-      image: '../../Assets/Homepage/gallery-3.jpg',
+      image: {gallery3},
       link: '/gallery/university'
     },
     {
       title: 'High School Athletic Flooring',
       category: 'K-12 Education',
-      image: '../../Assets/Homepage/gallery-4.jpg',
+      image: {gallery4},
       link: '/gallery/high-school'
     },
     {
       title: 'Municipal Building Renovation',
       category: 'Government',
-      image: '../../Assets/Homepage/gallery-5.jpg',
+      image: {gallery5},
       link: '/gallery/municipal'
     }
   ];

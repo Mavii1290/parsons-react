@@ -5,7 +5,10 @@ import "./Services.css";
 import HeaderBar from "../HeaderBar/HeaderBar";
 import Footer from "../Footer/Footer";
 
-
+import serviceIntro from "../Pages/Assets/Services/servicesIntro.png";
+import commercialFlooring from "../Pages/Assets/Services/commercialflooring.png";
+import sportsFlooring from "../Pages/Assets/Services/sports-flooring.png";
+import epoxyFlooring from "../Pages/Assets/Services/epoxy-flooring.png";
 
 const OurServices = () => {
 	return (
@@ -36,7 +39,7 @@ const OurServices = () => {
 						</div>
 						<div className="intro-image">
 							<img
-								src="../Assets/Services/services-intro.png"
+								src={serviceIntro}
 								alt="Professional flooring installation"
 							/>
 						</div>
@@ -51,7 +54,7 @@ const OurServices = () => {
 					<div className="service-card">
 						<div className="service-image">
 							<img
-								src="../Assets/Services/commercial-flooring.png"
+								src={commercialFlooring}
 								alt="Commercial flooring installation"
 							/>
 						</div>
@@ -87,7 +90,7 @@ const OurServices = () => {
 					<div className="service-card reverse">
 						<div className="service-image">
 							<img
-								src="../Pages/Assets/Services/sports-flooring.png"
+								src={sportsFlooring}
 								alt="Sports flooring installation"
 							/>
 						</div>
@@ -108,7 +111,7 @@ const OurServices = () => {
 					<div className="service-card">
 						<div className="service-image">
 							<img
-								src="../Pages/Assets/Services/epoxy-flooring.png"
+								src={epoxyFlooring}
 								alt="Epoxy flooring application"
 							/>
 						</div>

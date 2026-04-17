@@ -1,6 +1,8 @@
 import React from 'react';
 import './MissionSection.css';
 
+import missionTeam from '../../Assets/Homepage/mission-team.png';
+
 const MissionSection = () => {
   return (
     <section className="mission-section">
@@ -23,7 +25,7 @@ const MissionSection = () => {
             </p>
           </div>
           <div className="mission-image">
-            <img src="../../Assets/Homepage/mission-team.jpg" alt="Parsons Flooring team at work" />
+            <img src={missionTeam} alt="Parsons Flooring team at work" />
           </div>
         </div>
       </div>

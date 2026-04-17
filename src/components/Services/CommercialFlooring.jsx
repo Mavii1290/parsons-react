@@ -5,6 +5,8 @@ import './ServiceDetail.css';
 import HeaderBar from '../HeaderBar/HeaderBar';
 import Footer from '../Footer/Footer';
 
+import commercialDetail from '../Pages/Assets/Services/commercial-detail.png';
+
 const CommercialFlooring = () => {
   return (
     <div className="service-detail-page">
@@ -34,7 +36,7 @@ const CommercialFlooring = () => {
 
               <div className="feature-image">
                 <img 
-                  src="/images/commercial-detail-1.jpg" 
+                  src={commercialDetail} 
                   alt="Commercial flooring installation process" 
                 />
               </div>
@@ -127,27 +129,27 @@ const CommercialFlooring = () => {
               <div className="sidebar-card contact-card">
                 <h3>Need Help?</h3>
                 <p>Our flooring specialists are ready to answer your questions.</p>
-                <a href="tel:555-123-4567" className="phone-link">
-                  (555) 123-4567
+                <a href="tel:516-484-2323" className="phone-link">
+                  (516)484-2323
                 </a>
                 <Link to="/contact" className="contact-button">
                   Contact Us
                 </Link>
               </div>
 
-              <div className="sidebar-card">
-                <h3>Download Resources</h3>
-                <ul className="download-list">
-                  <li>
-                    <a href="#" download>Product Catalog</a>
-                  </li>
-                  <li>
-                    <a href="#" download>Installation Guide</a>
-                  </li>
-                  <li>
-                    <a href="#" download>Maintenance Tips</a>
-                  </li>
-                </ul>
+                <div className="sidebar-card">
+                <h3>Featured Projects</h3>
+                <div className="project-preview">
+                  <img src="/images/project-1.jpg" alt="High school gymnasium" />
+                  <p>Regional High School Gymnasium</p>
+                </div>
+                <div className="project-preview">
+                  <img src="/images/project-2.jpg" alt="University sports center" />
+                  <p>University Athletics Complex</p>
+                </div>
+                <Link to="/gallery" className="view-all-link">
+                  View All Projects →
+                </Link>
               </div>
             </aside>
           </div>

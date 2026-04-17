@@ -2,36 +2,43 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './QuickShipSection.css';
 
+import product1 from '../../Assets/Homepage/product-1.jpg';
+import product2 from '../../Assets/Homepage/product-2.jpg';
+import product3 from '../../Assets/Homepage/product-3.jpg';
+import product4 from '../../Assets/Homepage/product-4.jpg';
+import product5 from '../../Assets/Homepage/product-5.jpg';
+import product6 from '../../Assets/Homepage/product-6.jpg';
+
 const QuickShipSection = () => {
   const products = [
     {
       name: 'Cryptogram',
-      image: '../../Assets/Homepage/product-1.jpg',
+      image: {product1},
       link: '/products/cryptogram'
     },
     {
       name: 'Stone Collection',
-      image: '../../Assets/Homepage/product-2.jpg',
+      image: {product2},
       link: '/products/stone'
     },
     {
       name: 'Event Series',
-      image: '../../Assets/Homepage/product-3.jpg',
+      image: {product3},
       link: '/products/event-series'
     },
     {
       name: 'Mesh',
-      image: '../../Assets/Homepage/product-4.jpg',
+      image: {product4},
       link: '/products/mesh'
     },
     {
       name: 'Side Stripe',
-      image: '../../Assets/Homepage/product-5.jpg',
+      image: {product5},
       link: '/products/side-stripe'
     },
     {
       name: 'Abstract Collection',
-      image: '../../Assets/Homepage/product-6.jpg',
+      image: {product6},
       link: '/products/abstract'
     }
   ];

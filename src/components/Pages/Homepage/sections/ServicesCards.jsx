@@ -2,21 +2,25 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './ServicesCards.css';
 
+import commercialServiceCard from '../../Assets/Homepage/commercial-service-card.jpg';
+import sportsServiceCard from '../../Assets/Homepage/sports-service-card.jpg';
+import epoxyServiceCard from '../../Assets/Homepage/epoxy-service-card.jpg';
+
 const ServicesCards = () => {
   const services = [
     {
       title: 'Commercial Flooring',
-      image: '../../Assets/Homepage/commercial-service-card.jpg',
+      image: {commercialServiceCard},
       link: '/services/commercial-flooring'
     },
     {
       title: 'Sports Flooring',
-      image: '../../Assets/Homepage/sports-service-card.jpg',
+      image: {sportsServiceCard},
       link: '/services/sports-flooring'
     },
     {
       title: 'Epoxy Services',
-      image: '../../Assets/Homepage/epoxy-service-card.jpg',
+      image: {epoxyServiceCard},
       link: '/services/epoxy'
     }
   ];

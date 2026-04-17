@@ -6,6 +6,8 @@ import './ServiceDetail.css';
 import HeaderBar from '../HeaderBar/HeaderBar';
 import Footer from '../Footer/Footer';
 
+import sportsDetail from '../Pages/Assets/Services/sports-detail.jpg';
+
 const SportsFlooring = () => {
   return (
     <div className="service-detail-page">
@@ -34,7 +36,7 @@ const SportsFlooring = () => {
 
               <div className="feature-image">
                 <img 
-                  src="/images/sports-detail-1.jpg" 
+                  src={sportsDetail}
                   alt="Professional sports flooring installation" 
                 />
               </div>
@@ -94,6 +96,7 @@ const SportsFlooring = () => {
                 <li>Weight Room and Fitness Center Surfaces</li>
                 <li>Indoor Track Systems</li>
                 <li>Performance Court Game Lines and Graphics</li>
+                <li>Playground Turf</li>
               </ul>
 
               <div className="stats-section">
@@ -145,8 +148,8 @@ const SportsFlooring = () => {
               <div className="sidebar-card contact-card">
                 <h3>Need Help?</h3>
                 <p>Our sports flooring specialists are ready to answer your questions.</p>
-                <a href="tel:555-123-4567" className="phone-link">
-                  (555) 123-4567
+                <a href="tel:516-484-2323" className="phone-link">
+                  (516)484-2323
                 </a>
                 <Link to="/contact" className="contact-button">
                   Contact Us
