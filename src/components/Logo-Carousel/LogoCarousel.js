@@ -13,8 +13,6 @@ import mohawk from "./mohawk.png";
 import patcraft from "./patcraft.png";
 import shaw from "./shaw.png";
 import tarkett from "./tarkett.png";
-import Interface from "./Interface.png";
-import Mannington from "./Mannington.png";
 import mapei from "./mapei.png";
 import nuwud from "./nuwud.png";
 import roppe from "./roppe.png";
