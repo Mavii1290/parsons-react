@@ -5,10 +5,11 @@ import "react-multi-carousel/lib/styles.css";
 import "./LogoCarousel.css";
 import amarco from "./amarco.png";
 import bona from "./bona.png";
+import connor from "./Connor.png";
 import daltile from "./daltile.png";
 import karndean from "./karndean.png";
 import milliken from "./milliken.png";
-import mohawk from "./mohawk.png";
+import mohawk from "./Mohawk.png";
 import patcraft from "./patcraft.png";
 import shaw from "./shaw.png";
 import tarkett from "./tarkett.png";
@@ -76,6 +77,9 @@ export default function LogoCarousel() {
 				slidesToSlide={2}
 				swipeable
 			>
+				<div className="logo-carousel">
+					<img width="75%" src={connor} alt="Connor" />
+				</div>
 				<div className="logo-carousel">
 					<img width="75%" src={amarco} alt="Gerflor" />
 				</div>
