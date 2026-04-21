@@ -3,16 +3,24 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 import "./LogoCarousel.css";
-import Connor from "./Connor.png";
-import Gerflor from "./Gerflor.png";
+import amarco from "./amarco.png";
+import bona from "./bona.png";
+import Connor from "./connor.png";
+import daltile from "./daltile.png";
+import karndean from "./karndean.png";
 import milliken from "./milliken.png";
-import Mohawk from "./Mohawk.png";
+import Mohawk from "./mohawk.png";
 import patcraft from "./patcraft.png";
 import shaw from "./shaw.png";
-import Tarkett from "./Tarkett.png";
-import Bentley from "./Bentley.png";
+import Tarkett from "./tarkett.png";
 import Interface from "./Interface.png";
 import Mannington from "./Mannington.png";
+import mapei from "./mapei.png";
+import nuwud from "./nuwud.png";
+import roppe from "./roppe.png";
+
+
+
 
 export default function LogoCarousel() {
 	return (
@@ -72,13 +80,19 @@ export default function LogoCarousel() {
 				swipeable
 			>
 				<div className="logo-carousel">
-					<img width="60%" src={Connor} alt="Connor" />
+					<img width="75%" src={Connor} alt="Connor" />
 				</div>
 				<div className="logo-carousel">
-					<img width="75%" src={Gerflor} alt="Gerflor" />
+					<img width="75%" src={amarco} alt="Gerflor" />
+				</div>
+								<div className="logo-carousel">
+					<img width="75%" src={daltile} alt="Gerflor" />
 				</div>
 				<div className="logo-carousel">
 					<img width="75%" src={milliken} alt="Milliken" />
+				</div>
+								<div className="logo-carousel">
+					<img width="75%" src={karndean} alt="Milliken" />
 				</div>
 				<div className="logo-carousel">
 					<img width="75%" src={Mohawk} alt="Mohawk" />
@@ -93,13 +107,16 @@ export default function LogoCarousel() {
 					<img width="75%" src={Tarkett} alt="Tarkett" />
 				</div>
 				<div className="logo-carousel">
-					<img width="75%" src={Bentley} alt="Bentley" />
+					<img width="75%" src={bona} alt="Bentley" />
 				</div>
 				<div className="logo-carousel">
-					<img width="75%" src={Interface} alt="Interface" />
+					<img width="75%" src={mapei} alt="Bentley" />
 				</div>
 				<div className="logo-carousel">
-					<img width="75%" src={Mannington} alt="Mannington" />
+					<img width="75%" src={nuwud} alt="Interface" />
+				</div>
+				<div className="logo-carousel">
+					<img width="75%" src={roppe} alt="Mannington" />
 				</div>
 			</Carousel>
 		</div>

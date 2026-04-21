@@ -5,16 +5,24 @@ import Footer from "../Footer/Footer";
 
 import "./styles.css";
 import VCTExample from "./Assets/VCTExample.jpg.png";
+import showroom from "./Assets/showroom.png";
 
 export default function About() {
 	return (
 		<>
 			<HeaderBar />
+			<div className="hero-section-about">
+				<div className="hero-overlay-about"></div>
+				<div className="hero-content-about">
+					<h1>About Parsons Floors</h1>
+				</div>
+			</div>
+
 			<div className="page-intro">
-				<h1>About Parsons Floors</h1>
 				<div className="page-intro-container">
-				<div className="page-intro-img">
-					<img src={VCTExample} alt="" /></div>
+					<div className="page-intro-img">
+						<img src={showroom} alt="" />
+					</div>
 					<div className="page-intro-content">
 						<h2>Our History</h2>
 						<p>

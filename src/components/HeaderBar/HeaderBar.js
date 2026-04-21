@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { FaBasketballBall } from 'react-icons/fa';   // ← not used, you can remove if not needed
 
 import "./HeaderBar.css";
 import logo from "./logo.png";

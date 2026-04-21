@@ -21,14 +21,14 @@ import ProjectGallerySection from "./sections/ProjectGallerySection";
 import TestimonialsSection from "./sections/TestimonialsSection";
 import MembershipsSection from "./sections/MembershipsSection";
 
-import carpet from "../Assets/carpet.png";
-import herringbone from "../Assets/herringbone.png";
-import kitchen from "../Assets/kitchen.png";
+import carpet from "../Assets/Homepage/carpet.png";
+import herringbone from "../Assets/Homepage/herringbone.png";
+import kitchen from "../Assets/Homepage/kitchen.png";
 import homepageDropback from "./homepageDropback.png";
 import homepageDropbackMobile from "./homepageDropbackMobile.png";
-import WoodInstall from "../Assets/WoodInstall.png";
-import carpetInstall from "../Assets/carpetInstall.png";
-import womenCarpet1 from "../Assets/womanCarpet1.png";
+import WoodInstall from "../Assets/Homepage/WoodInstall.png";
+import carpetInstall from "../Assets/Homepage/carpetInstall.png";
+import womenCarpet1 from "../Assets/Homepage/womanCarpet1.png";
 import carpetExample from "../Assets/carpetExample.png";
 import TarkettLVT from "../Assets/TarkettLVT.png";
 import TarkettVCT from "../Assets/TarkettVCT.png";
@@ -193,7 +193,7 @@ export default function Homepage() {
 					</p>
 					<LogoCarousel />
 				</div>
-				
+
 				<FacilitiesSection />
 				<ServicesCards />
 				<WhoParsonsSection />

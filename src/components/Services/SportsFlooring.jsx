@@ -174,6 +174,7 @@ const SportsFlooring = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 };

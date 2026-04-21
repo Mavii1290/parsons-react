@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Homepage from "./components/Pages/Homepage/Homepage.jsx";
 import About from "./components/Pages/About";
 import Products from "./components/Pages/Products/Products";
-import Gallery from "./components/Pages/Gallery";
+import Gallery from "./components/Pages/Portfolio/Portfolio";
 import Contact from "./components/Pages/Contact";
 import Carpet from "./components/Pages/Products/Carpet";
 import VinylTile from "./components/Pages/Products/VinylTile";

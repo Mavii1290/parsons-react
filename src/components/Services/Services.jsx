@@ -89,10 +89,7 @@ const OurServices = () => {
 					{/* Sports Flooring */}
 					<div className="service-card reverse">
 						<div className="service-image">
-							<img
-								src={sportsFlooring}
-								alt="Sports flooring installation"
-							/>
+							<img src={sportsFlooring} alt="Sports flooring installation" />
 						</div>
 						<div className="service-content">
 							<h2>Sports Flooring Services</h2>
@@ -110,10 +107,7 @@ const OurServices = () => {
 					{/* Epoxy Services */}
 					<div className="service-card">
 						<div className="service-image">
-							<img
-								src={epoxyFlooring}
-								alt="Epoxy flooring application"
-							/>
+							<img src={epoxyFlooring} alt="Epoxy flooring application" />
 						</div>
 						<div className="service-content">
 							<h2>Our Epoxy Services</h2>

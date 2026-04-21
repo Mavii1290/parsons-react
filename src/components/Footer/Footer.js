@@ -40,8 +40,8 @@ export default function Footer() {
 			<div className="terms-footer">
 				<div className="terms-left">
 					<a href="/About">About us</a>
-					<a href="">Terms & Conditions</a>
-					<a href="">Privacy Policy</a>
+					<a href="/TermsAndConditions">Terms & Conditions</a>
+					<a href="/PrivacyPolicy">Privacy Policy</a>
 				</div>
 				<div className="terms-right">
 					<p>2026</p>

@@ -1,3 +1,54 @@
+/* Hero Section - NEW */
+.hero-section-about {
+	position: relative;
+	width: 100%;
+	height: 400px;
+	background-image: url('./Assets/parsons.png');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.hero-overlay-about {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(135deg, rgba(59, 82, 123, 0.85) 0%, rgba(42, 62, 99, 0.9) 100%);
+}
+
+.hero-content-about {
+	position: relative;
+	z-index: 2;
+	text-align: center;
+	padding: 0 20px;
+}
+
+.hero-content-about h1 {
+	color: white;
+	font-size: 3.5rem;
+	font-weight: 600;
+	margin: 0;
+	text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+	letter-spacing: 0.5px;
+}
+
+/* Hero Responsive - NEW */
+@media screen and (width < 768px) {
+	.hero-content h1 {
+		font-size: 2.2rem;
+	}
+
+	.hero-section {
+		height: 300px;
+	}
+}
+
+/* EXISTING STYLES BELOW */
 .products-header-container, .page-intro, .about-content {
     font-family: var(--base-font);
     margin: 3rem auto;
