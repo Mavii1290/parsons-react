@@ -12,7 +12,7 @@ import milliken from "./milliken.png";
 import mohawk from "./Mohawk.png";
 import patcraft from "./patcraft.png";
 import shaw from "./shaw.png";
-import tarkett from "./tarkett.png";
+import tarkett from "./Tarkett.png";
 import mapei from "./mapei.png";
 import nuwud from "./nuwud.png";
 import roppe from "./roppe.png";
