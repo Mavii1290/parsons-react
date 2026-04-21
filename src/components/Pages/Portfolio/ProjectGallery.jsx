@@ -53,11 +53,11 @@ export default function ProjectGallery({ project, onClose, isVideo }) {
 							<button className="gallery-nav-btn prev" onClick={handlePrevImage}>
 								‹
 							</button>
-							<img
-								src={project.images[currentImageIndex]}
-								alt={`${project.title} - Image ${currentImageIndex + 1}`}
-								className="main-gallery-image"
-							/>
+<img
+    src={project.images[currentImageIndex]}
+    alt={`${project.title} ${currentImageIndex + 1}`}
+    className="main-gallery-image"
+/>
 							<button className="gallery-nav-btn next" onClick={handleNextImage}>
 								›
 							</button>

@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 import HeaderBar from "../../HeaderBar/HeaderBar";
 import Footer from "../../Footer/Footer";
@@ -8,7 +8,7 @@ import PhotoCards from "../../PhotoCards/PhotoCards";
 
 import "./Products.css";
 
-import whiteWood from "../Assets/whiteWood.png";
+// import whiteWood from "../Assets/whiteWood.png";
 import carpetExample2 from "../Assets/carpetExample2.png";
 import VCTExample from "../Assets/VCTExample.jpg.png";
 import LVexample from "../Assets/LVexample.jpg";

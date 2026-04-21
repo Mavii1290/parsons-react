@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './ServicesCards.css';
 
-import commercialServiceCard from '../../Assets/Services/commercial-detail.png';
+import commercialServiceCard from '../../Assets/Homepage/commercial-service-card.jpg';
 import sportsServiceCard from '../../Assets/Homepage/sports-service-card.jpg';
 import epoxyServiceCard from '../../Assets/Homepage/epoxy-service-card.jpg';
 

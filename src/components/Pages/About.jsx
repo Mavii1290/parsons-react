@@ -4,7 +4,6 @@ import LogoCarousel from "../Logo-Carousel/LogoCarousel";
 import Footer from "../Footer/Footer";
 
 import "./styles.css";
-import VCTExample from "./Assets/VCTExample.jpg.png";
 import showroom from "./Assets/showroom.png";
 
 export default function About() {
