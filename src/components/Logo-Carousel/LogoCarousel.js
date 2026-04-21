@@ -5,14 +5,14 @@ import "react-multi-carousel/lib/styles.css";
 import "./LogoCarousel.css";
 import amarco from "./amarco.png";
 import bona from "./bona.png";
-import Connor from "./connor.png";
+import connor from "./connor.png";
 import daltile from "./daltile.png";
 import karndean from "./karndean.png";
 import milliken from "./milliken.png";
-import Mohawk from "./mohawk.png";
+import mohawk from "./mohawk.png";
 import patcraft from "./patcraft.png";
 import shaw from "./shaw.png";
-import Tarkett from "./tarkett.png";
+import tarkett from "./tarkett.png";
 import Interface from "./Interface.png";
 import Mannington from "./Mannington.png";
 import mapei from "./mapei.png";
@@ -80,7 +80,7 @@ export default function LogoCarousel() {
 				swipeable
 			>
 				<div className="logo-carousel">
-					<img width="75%" src={Connor} alt="Connor" />
+					<img width="75%" src={connor} alt="Connor" />
 				</div>
 				<div className="logo-carousel">
 					<img width="75%" src={amarco} alt="Gerflor" />
@@ -95,7 +95,7 @@ export default function LogoCarousel() {
 					<img width="75%" src={karndean} alt="Milliken" />
 				</div>
 				<div className="logo-carousel">
-					<img width="75%" src={Mohawk} alt="Mohawk" />
+					<img width="75%" src={mohawk} alt="Mohawk" />
 				</div>
 				<div className="logo-carousel">
 					<img width="75%" src={patcraft} alt="patcraft" />
@@ -104,7 +104,7 @@ export default function LogoCarousel() {
 					<img width="75%" src={shaw} alt="shaw" />
 				</div>
 				<div className="logo-carousel">
-					<img width="75%" src={Tarkett} alt="Tarkett" />
+					<img width="75%" src={tarkett} alt="Tarkett" />
 				</div>
 				<div className="logo-carousel">
 					<img width="75%" src={bona} alt="Bentley" />
