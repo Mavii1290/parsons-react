@@ -2,6 +2,17 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "parsons-react",
   "compatibility_date": "2026-04-21",
+  "workers_dev": false,
+  "routes": [
+    {
+      "pattern": "madavidesigns.com/*",
+      "zone_name": "madavidesigns.com"
+    },
+    {
+      "pattern": "www.madavidesigns.com/*",
+      "zone_name": "madavidesigns.com"
+    }
+  ],
   "observability": {
     "enabled": true
   },
