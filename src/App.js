@@ -10,7 +10,7 @@ import Contact from "./components/Pages/Contact";
 import Carpet from "./components/Pages/Products/Carpet";
 import VinylTile from "./components/Pages/Products/VinylTile";
 import LuxuryVinyl from "./components/Pages/Products/LuxuryVinyl";
-// import GymDesignerPage from './components/Pages/GymDesignerPage/GymDesignerPage';
+import GymDesignerPage from './components/Pages/GymDesignerPage/DesignYourGym.tsx';
 import Services from './components//Services/Services';
 import CommercialFlooring from './components/Services/CommercialFlooring';
 import SportsFlooring from './components/Services/SportsFlooring';
@@ -41,7 +41,7 @@ export default function App() {
 				<Route path="/About" element={<About />} />
 				<Route path="/Gallery" element={<Gallery />} />
 				<Route path="/Contact" element={<Contact />} />
-				{/* <Route path="/gym-designer" element={<GymDesignerPage />} /> */}
+				<Route path="/gym-designer" element={<GymDesignerPage />} />
 			</Routes>
 		</BrowserRouter>
 		</>
