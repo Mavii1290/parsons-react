@@ -14,6 +14,8 @@ type DragTarget =
   | { kind: 'additional'; sport: 'mainVolleyball' | 'sideVolleyball' | 'badminton' | 'pickleball'; index: number }
   | { kind: 'element'; key: 'bowlingPin' | 'baseballBases' | 'agilityLadder' | 'agilityDots' }
   | { kind: 'character'; id: string }
+  | { kind: 'logo'; id: string }
+  | { kind: 'logoResize'; id: string; initialSize: number }
   | { kind: 'pan' };
 
 interface DragState {
@@ -150,6 +152,39 @@ const CourtCanvas = forwardRef<SVGSVGElement, CourtCanvasProps>(function CourtCa
         ...s,
         characters: s.characters.map((c) => (c.id === target.id ? { ...c, x: nx, y: ny } : c)),
       }));
+    } else if (target.kind === 'logo') {
+      setState((s) => {
+        const bW = s.mainCourtWidth;
+        const bL = s.mainCourtLength;
+        const rot = s.mainCourtRotated;
+        const displayW = rot ? bL : bW;
+        const displayH = rot ? bW : bL;
+        const mx = s.mainCourtX ?? pad + (gymW - displayW) / 2;
+        const my = s.mainCourtY ?? pad + (gymL - displayH) / 2;
+        let newX, newY;
+        if (rot) {
+          newX = (ny - my) / bW;
+          newY = 1 - (nx - mx) / bL;
+        } else {
+          newX = (nx - mx) / bW;
+          newY = (ny - my) / bL;
+        }
+        return {
+          ...s,
+          logos: s.logos.map((l) =>
+            l.id === target.id ? { ...l, x: Math.max(0, Math.min(1, newX)), y: Math.max(0, Math.min(1, newY)) } : l,
+          ),
+        };
+      });
+    } else if (target.kind === 'logoResize') {
+      setState((s) => {
+        const minDim = Math.min(s.mainCourtWidth, s.mainCourtLength);
+        const newSize = Math.max(0.04, Math.min(1.5, target.initialSize + nx / minDim));
+        return {
+          ...s,
+          logos: s.logos.map((l) => (l.id === target.id ? { ...l, size: newSize } : l)),
+        };
+      });
     }
   };
 
@@ -256,27 +291,31 @@ const CourtCanvas = forwardRef<SVGSVGElement, CourtCanvasProps>(function CourtCa
         Parsons Floors
       </text>
 
-      <AdditionalCourts
-        state={state}
-        pad={pad}
-        gymW={gymW}
-        selected={selected}
-        setSelected={setSelected}
-        startDrag={startDrag}
-        setState={setState}
-      />
+      {!state.hiddenLayers?.includes('additionalCourts') && (
+        <AdditionalCourts
+          state={state}
+          pad={pad}
+          gymW={gymW}
+          selected={selected}
+          setSelected={setSelected}
+          startDrag={startDrag}
+          setState={setState}
+        />
+      )}
 
-      <SideCourts
-        state={state}
-        pad={pad}
-        gymW={gymW}
-        selected={selected}
-        setSelected={setSelected}
-        startDrag={startDrag}
-        onRotate={rotateSide}
-      />
+      {!state.hiddenLayers?.includes('sideCourts') && (
+        <SideCourts
+          state={state}
+          pad={pad}
+          gymW={gymW}
+          selected={selected}
+          setSelected={setSelected}
+          startDrag={startDrag}
+          onRotate={rotateSide}
+        />
+      )}
 
-      {hasMain && (
+      {hasMain && !state.hiddenLayers?.includes('mainCourt') && (
         <g
           onPointerDown={(e) => {
             setSelected('main');
@@ -304,6 +343,67 @@ const CourtCanvas = forwardRef<SVGSVGElement, CourtCanvasProps>(function CourtCa
           )}
         </g>
       )}
+
+      {/* Logos rendered in absolute SVG space for drag/resize support */}
+      {hasMain && !state.hiddenLayers?.includes('mainCourt') && state.logos.map((logo) => {
+        const bW = state.mainCourtWidth;
+        const bL = state.mainCourtLength;
+        const rot = state.mainCourtRotated;
+        const size = logo.size * Math.min(bW, bL);
+        const logoAbsX = rot
+          ? mainX + bL * (1 - logo.y)
+          : mainX + bW * logo.x;
+        const logoAbsY = rot
+          ? mainY + bW * logo.x
+          : mainY + bL * logo.y;
+        const logoSelected = selected === `logo-${logo.id}`;
+        return (
+          <g key={logo.id}>
+            <image
+              href={logo.src}
+              x={logoAbsX - size / 2}
+              y={logoAbsY - size / 2}
+              width={size}
+              height={size}
+              preserveAspectRatio="xMidYMid meet"
+              style={{ cursor: 'grab' }}
+              onPointerDown={(e) => {
+                e.stopPropagation();
+                (e.target as Element).setPointerCapture?.(e.pointerId);
+                setSelected(`logo-${logo.id}`);
+                startDrag(e, { kind: 'logo', id: logo.id }, logoAbsX, logoAbsY);
+              }}
+            />
+            {logoSelected && (
+              <>
+                <rect
+                  x={logoAbsX - size / 2}
+                  y={logoAbsY - size / 2}
+                  width={size}
+                  height={size}
+                  fill="none"
+                  stroke="#0066ff"
+                  strokeWidth={0.3}
+                  strokeDasharray="1 0.8"
+                  pointerEvents="none"
+                />
+                <circle
+                  cx={logoAbsX + size / 2}
+                  cy={logoAbsY + size / 2}
+                  r={1.2}
+                  fill="#0066ff"
+                  style={{ cursor: 'nwse-resize' }}
+                  onPointerDown={(e) => {
+                    e.stopPropagation();
+                    (e.target as Element).setPointerCapture?.(e.pointerId);
+                    startDrag(e, { kind: 'logoResize', id: logo.id, initialSize: logo.size }, 0, 0);
+                  }}
+                />
+              </>
+            )}
+          </g>
+        );
+      })}
 
       <ElementsLayer
         state={state}
@@ -418,28 +518,34 @@ function MainCourtShapes({
 }) {
   const tb = state.borderThicknessTB;
   const lr = state.borderThicknessLR;
-  const ix = lr;
-  const iy = tb;
-  const iw = w - lr * 2;
-  const il = l - tb * 2;
+  // Playing field origin is (0,0); borders expand outward
+  const ix = 0;
+  const iy = 0;
+  const iw = w;
+  const il = l;
 
   const stroke = state.lineColor;
   const sw = 0.25;
 
+  const topOutward = state.fontOrientation.startsWith('Top Outward');
+  const bottomInward = state.fontOrientation.endsWith('Bottom Inward');
+
   return (
     <g>
+      {/* Base playing field */}
       <rect x={0} y={0} width={w} height={l} fill={`url(#${woodId})`} />
 
+      {/* Borders expand outward */}
       {tb > 0 && (
         <>
-          <rect x={0} y={0} width={w} height={tb} fill={state.borderColorTB} />
-          <rect x={0} y={l - tb} width={w} height={tb} fill={state.borderColorTB} />
+          <rect x={-lr} y={-tb} width={w + lr * 2} height={tb} fill={state.borderColorTB} />
+          <rect x={-lr} y={l} width={w + lr * 2} height={tb} fill={state.borderColorTB} />
         </>
       )}
       {lr > 0 && (
         <>
-          <rect x={0} y={0} width={lr} height={l} fill={state.borderColorLR} />
-          <rect x={w - lr} y={0} width={lr} height={l} fill={state.borderColorLR} />
+          <rect x={-lr} y={0} width={lr} height={l} fill={state.borderColorLR} />
+          <rect x={w} y={0} width={lr} height={l} fill={state.borderColorLR} />
         </>
       )}
 
@@ -447,35 +553,27 @@ function MainCourtShapes({
         <>
           <text
             x={w / 2}
-            y={tb / 2}
+            y={-tb / 2}
             textAnchor="middle"
             dominantBaseline="middle"
             fill={state.topBorderTextColor}
             fontSize={state.topBorderFontSize * 0.05}
             fontFamily={state.topBorderFont}
             fontWeight="bold"
-            transform={
-              state.fontOrientation === 'Top Outward/Bottom Outward'
-                ? `rotate(180 ${w / 2} ${tb / 2})`
-                : undefined
-            }
+            transform={topOutward ? `rotate(180 ${w / 2} ${-tb / 2})` : undefined}
           >
             {state.topBorderText}
           </text>
           <text
             x={w / 2}
-            y={l - tb / 2}
+            y={l + tb / 2}
             textAnchor="middle"
             dominantBaseline="middle"
             fill={state.topBorderTextColor}
             fontSize={state.topBorderFontSize * 0.05}
             fontFamily={state.topBorderFont}
             fontWeight="bold"
-            transform={
-              state.fontOrientation === 'Top Outward/Bottom Outward'
-                ? undefined
-                : `rotate(180 ${w / 2} ${l - tb / 2})`
-            }
+            transform={bottomInward ? `rotate(180 ${w / 2} ${l + tb / 2})` : undefined}
           >
             {state.topBorderText}
           </text>
@@ -485,7 +583,7 @@ function MainCourtShapes({
       {state.leftBorderText && lr > 0 && (
         <>
           <text
-            x={lr / 2}
+            x={-lr / 2}
             y={l / 2}
             textAnchor="middle"
             dominantBaseline="middle"
@@ -493,12 +591,12 @@ function MainCourtShapes({
             fontSize={state.leftBorderFontSize * 0.05}
             fontFamily={state.leftBorderFont}
             fontWeight="bold"
-            transform={`rotate(-90 ${lr / 2} ${l / 2})`}
+            transform={`rotate(${topOutward ? 90 : -90} ${-lr / 2} ${l / 2})`}
           >
             {state.leftBorderText}
           </text>
           <text
-            x={w - lr / 2}
+            x={w + lr / 2}
             y={l / 2}
             textAnchor="middle"
             dominantBaseline="middle"
@@ -506,7 +604,7 @@ function MainCourtShapes({
             fontSize={state.leftBorderFontSize * 0.05}
             fontFamily={state.leftBorderFont}
             fontWeight="bold"
-            transform={`rotate(90 ${w - lr / 2} ${l / 2})`}
+            transform={`rotate(${bottomInward ? 90 : -90} ${w + lr / 2} ${l / 2})`}
           >
             {state.leftBorderText}
           </text>
@@ -534,16 +632,6 @@ function MainCourtShapes({
         />
       )}
 
-      <KeyArea
-        state={state}
-        cx={ix + iw / 2}
-        top={iy}
-        bottom={iy + il}
-        stroke={stroke}
-        sw={sw}
-        iw={iw}
-      />
-
       {state.mainElements.threePointArch && (
         <ThreePointArcs
           state={state}
@@ -556,20 +644,16 @@ function MainCourtShapes({
         />
       )}
 
-      {state.logos.map((logo) => {
-        const size = logo.size * Math.min(iw, il);
-        return (
-          <image
-            key={logo.id}
-            href={logo.src}
-            x={ix + iw * logo.x - size / 2}
-            y={iy + il * logo.y - size / 2}
-            width={size}
-            height={size}
-            preserveAspectRatio="xMidYMid meet"
-          />
-        );
-      })}
+      <KeyArea
+        state={state}
+        cx={ix + iw / 2}
+        top={iy}
+        bottom={iy + il}
+        stroke={stroke}
+        sw={sw}
+        iw={iw}
+      />
+
     </g>
   );
 }
@@ -597,6 +681,9 @@ function KeyArea({
   const arcR = 6;                                      // free-throw circle radius (6ft)
   const markLen = 1.5;
   const markPositions = [0.28, 0.47, 0.66, 0.85];     // 4 lane marks per side
+
+  const ftBoxW = 0.4;
+  const ftBoxH = 0.8;
 
   const LaneMarks = ({ baseY, dir }: { baseY: number; dir: 1 | -1 }) => (
     <>
@@ -626,6 +713,9 @@ function KeyArea({
             strokeWidth={sw}
           />
           <LaneMarks baseY={top} dir={1} />
+          {/* Low block markers at baseline (opposite key arch) */}
+          <rect x={cx - keyW / 2 - ftBoxW} y={top} width={ftBoxW} height={ftBoxH} fill={stroke} />
+          <rect x={cx + keyW / 2} y={top} width={ftBoxW} height={ftBoxH} fill={stroke} />
         </>
       )}
       {state.mainElements.keyArch && (
@@ -648,6 +738,9 @@ function KeyArea({
             strokeWidth={sw}
           />
           <LaneMarks baseY={bottom} dir={-1} />
+          {/* Low block markers at baseline (opposite key arch) */}
+          <rect x={cx - keyW / 2 - ftBoxW} y={bottom - ftBoxH} width={ftBoxW} height={ftBoxH} fill={stroke} />
+          <rect x={cx + keyW / 2} y={bottom - ftBoxH} width={ftBoxW} height={ftBoxH} fill={stroke} />
         </>
       )}
       {state.mainElements.keyArch && (
@@ -686,7 +779,7 @@ function ThreePointArcs({
   const x1 = cx - arcR;
   const x2 = cx + arcR;
   const fillHex = state.threePointFillColor;
-  const fillOpacity = fillHex === state.courtInteriorColor ? 0 : 0.7;
+  const fillOpacity = fillHex === state.courtInteriorColor ? 0 : 1;
 
   return (
     <g>
@@ -773,37 +866,53 @@ function SideCourtShape({ sc, x, y }: { sc: SideCourt; x: number; y: number }) {
   const transform = sc.rotated
     ? `translate(${x + baseL / 2} ${y + baseW / 2}) rotate(90) translate(${-baseW / 2} ${-baseL / 2})`
     : `translate(${x} ${y})`;
-  const courtW = baseW;
-  const courtL = baseL;
+
+  const stroke = sc.lineColor;
+  const cx = baseW / 2;
+  const keyW = Math.min(12, baseW * 0.9);
+  const keyL = Math.min(19, (baseL - 2) / 2);
+  const arcR = 6;
+  const threeR = Math.min(20.75, baseW / 2 - 0.5);
+  const x1 = Math.max(0, cx - threeR);
+  const x2 = Math.min(baseW, cx + threeR);
+  const hoopOff = 5.25;
   return (
-    <g transform={transform} stroke={sc.lineColor} strokeWidth={sw} fill="none">
-      <rect x={0} y={0} width={courtW} height={courtL} />
-      <line x1={0} y1={courtL / 2} x2={courtW} y2={courtL / 2} />
-      {sc.elements.centerCircle && <circle cx={courtW / 2} cy={courtL / 2} r={3} />}
-      {sc.elements.key && (
-        <>
-          <rect x={courtW / 2 - 6} y={0} width={12} height={10} />
-          <rect x={courtW / 2 - 6} y={courtL - 10} width={12} height={10} />
-        </>
+    <g transform={transform}>
+      <rect x={0} y={0} width={baseW} height={baseL} fill="none" stroke={stroke} strokeWidth={sw} />
+      <line x1={0} y1={baseL / 2} x2={baseW} y2={baseL / 2} stroke={stroke} strokeWidth={sw} />
+
+      {sc.elements.centerCircle && (
+        <circle cx={cx} cy={baseL / 2} r={6} fill="none" stroke={stroke} strokeWidth={sw} />
       )}
-      {sc.elements.keyArch && (
-        <>
-          <path d={`M ${courtW / 2 - 3} 10 A 3 3 0 0 0 ${courtW / 2 + 3} 10`} />
-          <path
-            d={`M ${courtW / 2 - 3} ${courtL - 10} A 3 3 0 0 1 ${courtW / 2 + 3} ${courtL - 10}`}
-          />
-        </>
-      )}
+
       {sc.elements.threePointArch && (
         <>
           <path
-            d={`M 3 0 L 3 4 A 10 10 0 0 0 ${courtW - 3} 4 L ${courtW - 3} 0`}
+            d={`M ${x1} 0 L ${x1} ${hoopOff} A ${threeR} ${threeR} 0 0 0 ${x2} ${hoopOff} L ${x2} 0 Z`}
+            fill="none"
+            stroke={stroke}
+            strokeWidth={sw}
           />
           <path
-            d={`M 3 ${courtL} L 3 ${courtL - 4} A 10 10 0 0 1 ${courtW - 3} ${
-              courtL - 4
-            } L ${courtW - 3} ${courtL}`}
+            d={`M ${x1} ${baseL} L ${x1} ${baseL - hoopOff} A ${threeR} ${threeR} 0 0 1 ${x2} ${baseL - hoopOff} L ${x2} ${baseL} Z`}
+            fill="none"
+            stroke={stroke}
+            strokeWidth={sw}
           />
+        </>
+      )}
+
+      {sc.elements.key && (
+        <>
+          <rect x={cx - keyW / 2} y={0} width={keyW} height={keyL} fill="none" stroke={stroke} strokeWidth={sw} />
+          <rect x={cx - keyW / 2} y={baseL - keyL} width={keyW} height={keyL} fill="none" stroke={stroke} strokeWidth={sw} />
+        </>
+      )}
+
+      {sc.elements.keyArch && (
+        <>
+          <path d={`M ${cx - arcR} ${keyL} A ${arcR} ${arcR} 0 0 0 ${cx + arcR} ${keyL}`} fill="none" stroke={stroke} strokeWidth={sw} />
+          <path d={`M ${cx - arcR} ${baseL - keyL} A ${arcR} ${arcR} 0 0 1 ${cx + arcR} ${baseL - keyL}`} fill="none" stroke={stroke} strokeWidth={sw} />
         </>
       )}
     </g>
@@ -928,14 +1037,48 @@ function AdditionalCourtShape({
   const transform = rotated
     ? `translate(${x + baseL / 2} ${y + baseW / 2}) rotate(90) translate(${-baseW / 2} ${-baseL / 2})`
     : `translate(${x} ${y})`;
+  const cx = baseW / 2;
+  const cy = baseL / 2;
+  const sw = 0.2;
+
   return (
-    <g transform={transform} stroke={color} strokeWidth={0.2} fill="none">
+    <g transform={transform} stroke={color} strokeWidth={sw} fill="none">
       <rect x={0} y={0} width={baseW} height={baseL} />
-      <line x1={0} y1={baseL / 2} x2={baseW} y2={baseL / 2} />
+      <line x1={0} y1={cy} x2={baseW} y2={cy} />
+
+      {/* Volleyball: attack lines 10ft from net */}
+      {(sport === 'mainVolleyball' || sport === 'sideVolleyball') && (
+        <>
+          <line x1={0} y1={cy - 10} x2={baseW} y2={cy - 10} />
+          <line x1={0} y1={cy + 10} x2={baseW} y2={cy + 10} />
+          {/* Net line (bold) */}
+          <line x1={0} y1={cy} x2={baseW} y2={cy} strokeWidth={sw * 2} />
+        </>
+      )}
+
+      {/* Badminton: service lines, back boundary, center line */}
+      {sport === 'badminton' && (
+        <>
+          {/* Short service lines (6.5ft from net) */}
+          <line x1={0} y1={cy - 6.5} x2={baseW} y2={cy - 6.5} />
+          <line x1={0} y1={cy + 6.5} x2={baseW} y2={cy + 6.5} />
+          {/* Long service lines for doubles (2.5ft from back) */}
+          <line x1={0} y1={2.5} x2={baseW} y2={2.5} />
+          <line x1={0} y1={baseL - 2.5} x2={baseW} y2={baseL - 2.5} />
+          {/* Center line splitting each half */}
+          <line x1={cx} y1={0} x2={cx} y2={cy - 6.5} />
+          <line x1={cx} y1={cy + 6.5} x2={cx} y2={baseL} />
+        </>
+      )}
+
+      {/* Pickleball: kitchen (non-volley zone) lines 7ft from net, center line */}
       {sport === 'pickleball' && (
         <>
-          <line x1={0} y1={baseL / 2 - 7} x2={baseW} y2={baseL / 2 - 7} />
-          <line x1={0} y1={baseL / 2 + 7} x2={baseW} y2={baseL / 2 + 7} />
+          <line x1={0} y1={cy - 7} x2={baseW} y2={cy - 7} />
+          <line x1={0} y1={cy + 7} x2={baseW} y2={cy + 7} />
+          {/* Center line */}
+          <line x1={cx} y1={0} x2={cx} y2={cy - 7} />
+          <line x1={cx} y1={cy + 7} x2={cx} y2={baseL} />
         </>
       )}
     </g>

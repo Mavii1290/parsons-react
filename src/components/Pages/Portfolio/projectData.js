@@ -31,63 +31,123 @@ export const galleryProjects = [
 	},
 	{
 		id: 3,
-		title: "Uniondale Fire Department",
+		title: "Fire Department",
 		category: "Blendex",
 		segment: "Fire Department",
-		thumbnail: "/Assets/Portfolio/uniondale-thumb.jpg",
+		thumbnail: "/Assets/Portfolio/firehouse.jpg",
 		images: [
-			"/Assets/Portfolio/uniondale-1.jpg",
-			"/Assets/Portfolio/uniondale-2.jpg",
-			"/Assets/Portfolio/uniondale-3.jpg",
+			"/Assets/Portfolio/firehouse1.jpg",
+			"/Assets/Portfolio/firehouse2.jpg",
+			"/Assets/Portfolio/firehouse3.jpg",
+			"/Assets/Portfolio/firehouse4.jpg",
+			"/Assets/Portfolio/firehouse5.jpg",
 		],
 		description:
 			"Commercial-grade epoxy flooring installation designed to withstand heavy equipment and high traffic.",
 	},
 	{
 		id: 4,
-		title: "Central Islip Elementary School",
-		category: "Sports",
-		segment: "Education",
-		thumbnail: "/Assets/Portfolio/central-islip-thumb.jpg",
-		images: [
-			"/Assets/Portfolio/central-islip-1.jpg",
-			"/Assets/Portfolio/central-islip-2.jpg",
-			"/Assets/Portfolio/central-islip-3.jpg",
-		],
-		description:
-			"Gymnasium floor installation with custom school logo and game line markings. High-performance flooring for athletic activities.",
-	},
-	{
-		id: 5,
-		title: "Syosset Public Library",
+		title: "Massapequa High School Cafeteria & Kitchen",
 		category: "Commercial",
-		segment: "Libraries",
-		thumbnail: "/Assets/Portfolio/syosset-thumb.jpg",
+		segment: "Education",
+		thumbnail: "/Assets/Portfolio/Massapequa-cafeteria-and-kitchen.jpg",
 		images: [
-			"/Assets/Portfolio/syosset-1.jpg",
-			"/Assets/Portfolio/syosset-2.jpg",
-			"/Assets/Portfolio/syosset-3.jpg",
-			"/Assets/Portfolio/syosset-4.jpg",
-			"/Assets/Portfolio/syosset-5.jpg",
-		],
-		description:
-			"Multi-surface renovation including carpet tile in reading areas and terrazzo restoration. Creating a modern, functional space for the community.",
-	},
-	{
-		id: 6,
-		title: "Uniondale Fire Department",
-		category: "Blendex",
-		segment: "Fire Department",
-		thumbnail: "/Assets/Portfolio/uniondale-thumb.jpg",
-		images: [
-			"/Assets/Portfolio/uniondale-1.jpg",
-			"/Assets/Portfolio/uniondale-2.jpg",
-			"/Assets/Portfolio/uniondale-3.jpg",
+			"/Assets/Portfolio/Massapequa-cafeteria-and-kitchen.jpg",
+			"/Assets/Portfolio/Massapequa-cafeteria-and-kitchen1.jpg",
+			"/Assets/Portfolio/Massapequa-cafeteria-and-kitchen2.jpg",
+			"/Assets/Portfolio/Massapequa-cafeteria-and-kitchen3.jpg",
+			"/Assets/Portfolio/Massapequa-cafeteria-and-kitchen4.jpg",
 		],
 		description:
 			"Commercial-grade epoxy flooring installation designed to withstand heavy equipment and high traffic.",
 	},
-	// Add more gallery projects here
+	{
+		id: 5,
+		title: "Garden City Public Library",
+		category: "Commercial",
+		segment: "Libraries",
+		thumbnail: "/Assets/Portfolio/Garden-City-Library-1.jpg",
+		images: [
+			"/Assets/Portfolio/Garden-City-Library-1.jpg",
+			"/Assets/Portfolio/Garden-City-Library-2.jpg",
+			"/Assets/Portfolio/Garden-City-Library-3.jpg",
+			"/Assets/Portfolio/Garden-City-Library-4.jpg",
+		],
+		description:
+			"Renovation including carpet tile in reading areas. Creating a modern, functional space for the community.",
+	},
+	{
+		id: 6,
+		title: "Howell Elementary School Library",
+		category: "Commercial",
+		segment: "Libraries",
+		thumbnail: "/Assets/Portfolio/Howell-Library.jpg",
+		images: [
+			"/Assets/Portfolio/Howell-Library.jpg",
+			"/Assets/Portfolio/Howell-Library-1.jpg",
+			"/Assets/Portfolio/Howell-Library-2.jpg",
+			"/Assets/Portfolio/Howell-Library-3.jpg",
+			"/Assets/Portfolio/Howell-Library-4.jpg",
+			"/Assets/Portfolio/Howell-Library-5.jpg",
+			"/Assets/Portfolio/Howell-Library-6.jpg",
+		],
+		description:
+			"Renovation including tile in Library. Creating a modern, functional space for the community.",
+	},
+	{
+		id: 7,
+		title: "Private Office",
+		category: "Commercial",
+		segment: "Office",
+		thumbnail: "/Assets/Portfolio/PRIVATE-OFFICE.jpg",
+		images: [
+			"/Assets/Portfolio/PRIVATE-OFFICE.jpg",
+			"/Assets/Portfolio/PRIVATE-OFFICE1.jpg",
+			"/Assets/Portfolio/PRIVATE-OFFICE2.jpg",
+			"/Assets/Portfolio/PRIVATE-OFFICE3.jpg",
+			"/Assets/Portfolio/PRIVATE-OFFICE4.jpg",
+			"/Assets/Portfolio/PRIVATE-OFFICE5.jpg",
+		],
+		description:
+			"Renovation including carpet tile in Office and Meeting Room. Creating a modern, functional space for the community.",
+	},
+	{
+		id: 8,
+		title: "Private Offce",
+		category: "Commercial",
+		segment: "Office",
+		thumbnail: "/Assets/Portfolio/Private-Off.jpg",
+		images: [
+			"/Assets/Portfolio/Private-Off1.jpg",
+			"/Assets/Portfolio/Private-Off1.jpg",
+			"/Assets/Portfolio/Private-Off2.jpg",
+			"/Assets/Portfolio/Private-Off3.jpg",
+			"/Assets/Portfolio/Private-Off4.jpg",
+			"/Assets/Portfolio/Private-Off5.jpg",
+			"/Assets/Portfolio/Private-Off6.jpg",
+		],
+		description:
+			"Renovation including carpet tile in Office and Meeting Room. Creating a modern, functional space for the community.",
+	},
+		{
+		id: 9,
+		title: "wantagh High School Cafeteria & Kitchen",
+		category: "Commercial",
+		segment: "Education",
+		thumbnail: "/Assets/Portfolio/Wantagh-cafeteria.jpg",
+		images: [
+			"/Assets/Portfolio/Wantagh-cafeteria.jpg",
+			"/Assets/Portfolio/Wantagh-cafeteria1.jpg",
+			"/Assets/Portfolio/Wantagh-cafeteria2.jpg",
+			"/Assets/Portfolio/Wantagh-cafeteria3.jpg",
+			"/Assets/Portfolio/Wantagh-cafeteria4.jpg",
+			"/Assets/Portfolio/Wantagh-cafeteria5.jpg",
+			"/Assets/Portfolio/Wantagh-cafeteria6.jpg",
+
+		],
+		description:
+			"Commercial-grade epoxy flooring installation designed to withstand heavy equipment and high traffic.",
+	},
 ];
 
 // Video Projects Data

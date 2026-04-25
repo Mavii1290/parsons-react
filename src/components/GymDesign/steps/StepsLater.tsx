@@ -551,8 +551,8 @@ export function Step5Elements({ state, setState }: Props) {
   );
 }
 
-export function Step6Summary({ state }: Props) {
-  const layers: { label: string; detail?: string }[] = [];
+export function Step6Summary({ state, setState }: Props) {
+  const layers: { label: string; detail?: string; layerId?: string }[] = [];
   layers.push({
     label: 'Gym Floor',
     detail: `${state.gymWidth}ft x ${state.gymLength}ft · ${state.floorType}`,
@@ -560,6 +560,7 @@ export function Step6Summary({ state }: Props) {
   if (state.mainCourtSize !== 'NO MAIN BASKETBALL COURT') {
     layers.push({
       label: 'Main Basketball Court',
+      layerId: 'mainCourt',
       detail: `${state.mainCourtWidth}ft x ${state.mainCourtLength}ft · ${state.mainCourtSize}${
         state.mainCourtRotated ? ' · Rotated 90°' : ''
       }`,
@@ -578,26 +579,36 @@ export function Step6Summary({ state }: Props) {
     if (state.logos.length) layers.push({ label: 'Logos', detail: `${state.logos.length} uploaded` });
   }
   if (state.sideCourts.length) {
-    layers.push({ label: 'Side Courts', detail: `${state.sideCourts.length} court(s)` });
+    layers.push({ label: 'Side Courts', layerId: 'sideCourts', detail: `${state.sideCourts.length} court(s)` });
   }
-  const sports: [string, { count: number; enabled: boolean }][] = [
-    ['Main Volleyball', state.mainVolleyball],
-    ['Side Volleyball', state.sideVolleyball],
-    ['Badminton', state.badminton],
-    ['Pickleball', state.pickleball],
+  const sports: [string, string, { count: number; enabled: boolean }][] = [
+    ['Main Volleyball', 'additionalCourts', state.mainVolleyball],
+    ['Side Volleyball', 'additionalCourts', state.sideVolleyball],
+    ['Badminton', 'additionalCourts', state.badminton],
+    ['Pickleball', 'additionalCourts', state.pickleball],
   ];
-  sports.forEach(([label, data]) => {
-    if (data.enabled && data.count > 0) layers.push({ label, detail: `${data.count} court(s)` });
+  sports.forEach(([label, layerId, data]) => {
+    if (data.enabled && data.count > 0) layers.push({ label, layerId, detail: `${data.count} court(s)` });
   });
   Object.entries(state.elements).forEach(([k, v]) => {
-    if (v.enabled && v.quantity > 0) layers.push({ label: k, detail: `Quantity: ${v.quantity}` });
+    if (v.enabled && v.quantity > 0) layers.push({ label: k, layerId: 'elements', detail: `Quantity: ${v.quantity}` });
   });
   if (state.characters.length) {
     layers.push({
       label: 'Characters',
+      layerId: 'elements',
       detail: state.characters.map((c) => c.char).join(' '),
     });
   }
+
+  const toggleLayer = (layerId: string) => {
+    setState((s) => ({
+      ...s,
+      hiddenLayers: s.hiddenLayers?.includes(layerId)
+        ? s.hiddenLayers.filter((id) => id !== layerId)
+        : [...(s.hiddenLayers ?? []), layerId],
+    }));
+  };
 
   return (
     <div className="p-4 space-y-3">
@@ -605,12 +616,27 @@ export function Step6Summary({ state }: Props) {
         COURT LAYERS
       </h3>
       <div className="space-y-1">
-        {layers.map((l, i) => (
-          <div key={i} className="border border-gray-200 bg-white px-3 py-2">
-            <div className="text-xs font-bold text-gray-800">{l.label}</div>
-            {l.detail && <div className="text-[11px] text-gray-600">{l.detail}</div>}
-          </div>
-        ))}
+        {layers.map((l, i) => {
+          const hidden = l.layerId ? state.hiddenLayers?.includes(l.layerId) : false;
+          return (
+            <div key={i} className={`flex items-start justify-between border border-gray-200 bg-white px-3 py-2 ${hidden ? 'opacity-40' : ''}`}>
+              <div>
+                <div className="text-xs font-bold text-gray-800">{l.label}</div>
+                {l.detail && <div className="text-[11px] text-gray-600">{l.detail}</div>}
+              </div>
+              {l.layerId && (
+                <button
+                  type="button"
+                  onClick={() => toggleLayer(l.layerId!)}
+                  className="ml-2 shrink-0 text-[#293879] hover:text-[#0a2f5c]"
+                  title={hidden ? 'Show layer' : 'Hide layer'}
+                >
+                  {hidden ? <EyeOff size={14} /> : <Eye size={14} />}
+                </button>
+              )}
+            </div>
+          );
+        })}
       </div>
       <p className="pt-2 text-[11px] text-gray-600">
         Review your design above. Use the <strong>GET PDF</strong> button below to download your court.

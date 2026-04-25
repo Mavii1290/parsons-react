@@ -137,7 +137,8 @@ export interface DesignState {
   leftBorderText: string;
   leftBorderFontSize: number;
   leftBorderTextColor: string;
-  fontOrientation: 'Top Inward/Bottom Inward' | 'Top Outward/Bottom Outward';
+  fontOrientation: 'Top Inward/Bottom Inward' | 'Top Outward/Bottom Outward' | 'Top Inward/Bottom Outward' | 'Top Outward/Bottom Inward';
+  hiddenLayers: string[];
 
   // Step 3
   sideCourts: SideCourt[];
@@ -221,6 +222,7 @@ export const createDefaultState = (): DesignState => ({
   characters: [],
 
   mainCourtRotated: true,
+  hiddenLayers: [],
   zoom: 1,
   panX: 0,
   panY: 0,

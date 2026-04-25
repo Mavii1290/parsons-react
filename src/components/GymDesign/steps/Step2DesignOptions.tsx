@@ -216,6 +216,8 @@ export default function Step2DesignOptions({ state, setState }: Props) {
           >
             <option>Top Inward/Bottom Inward</option>
             <option>Top Outward/Bottom Outward</option>
+            <option>Top Inward/Bottom Outward</option>
+            <option>Top Outward/Bottom Inward</option>
           </select>
         </div>
       </Accordion>
