@@ -291,18 +291,6 @@ const CourtCanvas = forwardRef<SVGSVGElement, CourtCanvasProps>(function CourtCa
         Parsons Floors
       </text>
 
-      {!state.hiddenLayers?.includes('additionalCourts') && (
-        <AdditionalCourts
-          state={state}
-          pad={pad}
-          gymW={gymW}
-          selected={selected}
-          setSelected={setSelected}
-          startDrag={startDrag}
-          setState={setState}
-        />
-      )}
-
       {!state.hiddenLayers?.includes('sideCourts') && (
         <SideCourts
           state={state}
@@ -404,6 +392,18 @@ const CourtCanvas = forwardRef<SVGSVGElement, CourtCanvasProps>(function CourtCa
           </g>
         );
       })}
+
+      {!state.hiddenLayers?.includes('additionalCourts') && (
+        <AdditionalCourts
+          state={state}
+          pad={pad}
+          gymW={gymW}
+          selected={selected}
+          setSelected={setSelected}
+          startDrag={startDrag}
+          setState={setState}
+        />
+      )}
 
       <ElementsLayer
         state={state}
@@ -676,14 +676,14 @@ function KeyArea({
   iw: number;
 }) {
   const il = Math.max(0, bottom - top);
-  const keyW = Math.min(12, iw * 0.9);                 // standard 12ft, capped so it fits
   const keyL = Math.min(19, (il - 2) / 2);             // standard 19ft, never let keys overlap
-  const arcR = 6;                                      // free-throw circle radius (6ft)
+  const arcR = Math.max(6, 5.25 + 20.75 - keyL);      // radius sized so arch dome meets 3-point arc
+  const keyW = Math.min(2 * arcR, iw * 0.9);           // key width = arch diameter so they align
   const markLen = 1.5;
   const markPositions = [0.28, 0.47, 0.66, 0.85];     // 4 lane marks per side
 
-  const ftBoxW = 0.4;
-  const ftBoxH = 0.8;
+  const ftBoxW = 1.5;
+  const ftBoxH = 2.0;
 
   const LaneMarks = ({ baseY, dir }: { baseY: number; dir: 1 | -1 }) => (
     <>
@@ -713,9 +713,9 @@ function KeyArea({
             strokeWidth={sw}
           />
           <LaneMarks baseY={top} dir={1} />
-          {/* Low block markers at baseline (opposite key arch) */}
-          <rect x={cx - keyW / 2 - ftBoxW} y={top} width={ftBoxW} height={ftBoxH} fill={stroke} />
-          <rect x={cx + keyW / 2} y={top} width={ftBoxW} height={ftBoxH} fill={stroke} />
+          {/* Low block markers aligned with first lane mark from baseline */}
+          <rect x={cx - keyW / 2 - ftBoxW} y={top + keyL * 0.28 - ftBoxH / 2} width={ftBoxW} height={ftBoxH} fill={stroke} />
+          <rect x={cx + keyW / 2} y={top + keyL * 0.28 - ftBoxH / 2} width={ftBoxW} height={ftBoxH} fill={stroke} />
         </>
       )}
       {state.mainElements.keyArch && (
@@ -738,9 +738,9 @@ function KeyArea({
             strokeWidth={sw}
           />
           <LaneMarks baseY={bottom} dir={-1} />
-          {/* Low block markers at baseline (opposite key arch) */}
-          <rect x={cx - keyW / 2 - ftBoxW} y={bottom - ftBoxH} width={ftBoxW} height={ftBoxH} fill={stroke} />
-          <rect x={cx + keyW / 2} y={bottom - ftBoxH} width={ftBoxW} height={ftBoxH} fill={stroke} />
+          {/* Low block markers aligned with first lane mark from baseline */}
+          <rect x={cx - keyW / 2 - ftBoxW} y={bottom - keyL * 0.28 - ftBoxH / 2} width={ftBoxW} height={ftBoxH} fill={stroke} />
+          <rect x={cx + keyW / 2} y={bottom - keyL * 0.28 - ftBoxH / 2} width={ftBoxW} height={ftBoxH} fill={stroke} />
         </>
       )}
       {state.mainElements.keyArch && (
@@ -822,8 +822,9 @@ function SideCourts({
   return (
     <g>
       {state.sideCourts.map((sc, idx) => {
-        const baseW = 25;
-        const baseL = 42;
+        if (sc.hidden) return null;
+        const baseW = state.mainCourtWidth;
+        const baseL = state.mainCourtLength;
         const w = sc.rotated ? baseL : baseW;
         const h = sc.rotated ? baseW : baseL;
         const total = state.sideCourts.length;
@@ -842,7 +843,7 @@ function SideCourts({
             }}
             style={{ cursor: 'grab' }}
           >
-            <SideCourtShape sc={sc} x={x} y={y} />
+            <SideCourtShape sc={sc} x={x} y={y} courtW={baseW} courtL={baseL} />
             {selected === id && (
               <SelectionHandles
                 x={x}
@@ -859,23 +860,28 @@ function SideCourts({
   );
 }
 
-function SideCourtShape({ sc, x, y }: { sc: SideCourt; x: number; y: number }) {
+function SideCourtShape({ sc, x, y, courtW, courtL }: { sc: SideCourt; x: number; y: number; courtW: number; courtL: number }) {
   const sw = 0.2;
-  const baseW = 25;
-  const baseL = 42;
+  const baseW = courtW;
+  const baseL = courtL;
   const transform = sc.rotated
     ? `translate(${x + baseL / 2} ${y + baseW / 2}) rotate(90) translate(${-baseW / 2} ${-baseL / 2})`
     : `translate(${x} ${y})`;
 
   const stroke = sc.lineColor;
   const cx = baseW / 2;
-  const keyW = Math.min(12, baseW * 0.9);
   const keyL = Math.min(19, (baseL - 2) / 2);
-  const arcR = 6;
+  const arcR = Math.max(6, 5.25 + 20.75 - keyL);
+  const keyW = Math.min(2 * arcR, baseW * 0.9);
   const threeR = Math.min(20.75, baseW / 2 - 0.5);
   const x1 = Math.max(0, cx - threeR);
   const x2 = Math.min(baseW, cx + threeR);
   const hoopOff = 5.25;
+  const markLen = 1.5;
+  const markPositions = [0.28, 0.47, 0.66, 0.85];
+  const ftBoxW = 1.5;
+  const ftBoxH = 2.0;
+
   return (
     <g transform={transform}>
       <rect x={0} y={0} width={baseW} height={baseL} fill="none" stroke={stroke} strokeWidth={sw} />
@@ -905,7 +911,30 @@ function SideCourtShape({ sc, x, y }: { sc: SideCourt; x: number; y: number }) {
       {sc.elements.key && (
         <>
           <rect x={cx - keyW / 2} y={0} width={keyW} height={keyL} fill="none" stroke={stroke} strokeWidth={sw} />
+          {markPositions.map((pct) => {
+            const ym = keyL * pct;
+            return (
+              <g key={`tm-${pct}`}>
+                <line x1={cx - keyW / 2} y1={ym} x2={cx - keyW / 2 - markLen} y2={ym} stroke={stroke} strokeWidth={sw} />
+                <line x1={cx + keyW / 2} y1={ym} x2={cx + keyW / 2 + markLen} y2={ym} stroke={stroke} strokeWidth={sw} />
+              </g>
+            );
+          })}
+          <rect x={cx - keyW / 2 - ftBoxW} y={keyL * 0.28 - ftBoxH / 2} width={ftBoxW} height={ftBoxH} fill={stroke} />
+          <rect x={cx + keyW / 2} y={keyL * 0.28 - ftBoxH / 2} width={ftBoxW} height={ftBoxH} fill={stroke} />
+
           <rect x={cx - keyW / 2} y={baseL - keyL} width={keyW} height={keyL} fill="none" stroke={stroke} strokeWidth={sw} />
+          {markPositions.map((pct) => {
+            const ym = baseL - keyL * pct;
+            return (
+              <g key={`bm-${pct}`}>
+                <line x1={cx - keyW / 2} y1={ym} x2={cx - keyW / 2 - markLen} y2={ym} stroke={stroke} strokeWidth={sw} />
+                <line x1={cx + keyW / 2} y1={ym} x2={cx + keyW / 2 + markLen} y2={ym} stroke={stroke} strokeWidth={sw} />
+              </g>
+            );
+          })}
+          <rect x={cx - keyW / 2 - ftBoxW} y={baseL - keyL * 0.28 - ftBoxH / 2} width={ftBoxW} height={ftBoxH} fill={stroke} />
+          <rect x={cx + keyW / 2} y={baseL - keyL * 0.28 - ftBoxH / 2} width={ftBoxW} height={ftBoxH} fill={stroke} />
         </>
       )}
 
@@ -962,7 +991,17 @@ function AdditionalCourts({
     });
   };
 
-  types.forEach(({ sport, yOffset }) => {
+  const gymL = state.gymLength;
+  const mainCW = state.mainCourtWidth;
+  const mainCL = state.mainCourtLength;
+  const mainX = state.mainCourtX ?? pad + (gymW - (state.mainCourtRotated ? mainCL : mainCW)) / 2;
+  const mainY = state.mainCourtY ?? pad + (gymL - (state.mainCourtRotated ? mainCW : mainCL)) / 2;
+  const mainDisplayW = state.mainCourtRotated ? mainCL : mainCW;
+  const mainDisplayH = state.mainCourtRotated ? mainCW : mainCL;
+  const mainCenterX = mainX + mainDisplayW / 2;
+  const mainCenterY = mainY + mainDisplayH / 2;
+
+  types.forEach(({ sport }) => {
     const sd = state[sport];
     if (!sd.enabled || sd.count <= 0) return;
     const size =
@@ -977,8 +1016,8 @@ function AdditionalCourts({
       const rotated = pos?.rotated ?? false;
       const w = rotated ? size.l : size.w;
       const h = rotated ? size.w : size.l;
-      const defaultX = pad + col * (size.w + 4) + 4;
-      const defaultY = pad + yOffset + row * (size.l + 4);
+      const defaultX = mainCenterX - w / 2 + col * (w + 4);
+      const defaultY = mainCenterY - h / 2 + row * (h + 4);
       const x = pos?.x ?? defaultX;
       const y = pos?.y ?? defaultY;
       const id = `${sport}-${i}`;

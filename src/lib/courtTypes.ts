@@ -73,6 +73,7 @@ export interface SideCourt {
   lineColor: string;
   elements: CourtElements;
   rotated: boolean;
+  hidden?: boolean;
   x?: number; // absolute position in feet (optional; undefined = auto-layout)
   y?: number;
 }

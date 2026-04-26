@@ -113,7 +113,7 @@ export const galleryProjects = [
 	},
 	{
 		id: 8,
-		title: "Private Offce",
+		title: "Private Office",
 		category: "Commercial",
 		segment: "Office",
 		thumbnail: "/Assets/Portfolio/Private-Off.jpg",
@@ -131,7 +131,7 @@ export const galleryProjects = [
 	},
 		{
 		id: 9,
-		title: "wantagh High School Cafeteria & Kitchen",
+		title: "Wantagh High School Cafeteria & Kitchen",
 		category: "Commercial",
 		segment: "Education",
 		thumbnail: "/Assets/Portfolio/Wantagh-cafeteria.jpg",

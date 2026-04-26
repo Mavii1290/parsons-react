@@ -96,6 +96,13 @@ function SideCourtRow({
             ROTATE 90°
           </button>
           <button
+            onClick={() => onUpdate({ hidden: !court.hidden })}
+            className="text-[#293879]"
+            title={court.hidden ? 'Show court' : 'Hide court'}
+          >
+            {court.hidden ? <EyeOff size={16} /> : <Eye size={16} />}
+          </button>
+          <button
             onClick={onRemove}
             className="flex items-center gap-1 bg-red-700 px-2 py-1 text-xs font-semibold text-white hover:bg-red-800"
           >
@@ -171,7 +178,21 @@ export function Step4Additional({ state, setState }: Props) {
         return (
           <div key={sport.key} className="border border-gray-200">
             <div className="flex items-center justify-between bg-gray-50 px-3 py-2">
-              <span className="text-xs font-bold tracking-wider">{sport.label}</span>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() =>
+                    setState((s) => ({
+                      ...s,
+                      [sport.key]: { ...s[sport.key], enabled: !sd.enabled },
+                    }))
+                  }
+                  className="text-[#293879]"
+                  title={sd.enabled ? 'Hide courts' : 'Show courts'}
+                >
+                  {sd.enabled ? <Eye size={16} /> : <EyeOff size={16} />}
+                </button>
+                <span className="text-xs font-bold tracking-wider">{sport.label}</span>
+              </div>
               <button
                 onClick={() => setOpenKey(isOpen ? null : sport.key)}
                 className="bg-[#293879] px-3 py-1 text-[10px] font-semibold text-white"

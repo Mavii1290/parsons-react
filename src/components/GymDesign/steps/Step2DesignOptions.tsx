@@ -50,12 +50,14 @@ export default function Step2DesignOptions({ state, setState }: Props) {
             colors={SOLID_COLORS}
             selected={state.borderColorTB}
             onSelect={(hex) => setState((s) => ({ ...s, borderColorTB: hex }))}
+            deselectedValue={state.courtInteriorColor}
           />
           <div className="text-[10px] font-semibold tracking-wider text-gray-600">WOOD STAIN</div>
           <ColorGrid
             colors={WOOD_STAINS}
             selected={state.borderColorTB}
             onSelect={(hex) => setState((s) => ({ ...s, borderColorTB: hex }))}
+            deselectedValue={state.courtInteriorColor}
             columns={4}
           />
         </div>
@@ -72,12 +74,14 @@ export default function Step2DesignOptions({ state, setState }: Props) {
             colors={SOLID_COLORS}
             selected={state.borderColorLR}
             onSelect={(hex) => setState((s) => ({ ...s, borderColorLR: hex }))}
+            deselectedValue={state.courtInteriorColor}
           />
           <div className="text-[10px] font-semibold tracking-wider text-gray-600">WOOD STAIN</div>
           <ColorGrid
             colors={WOOD_STAINS}
             selected={state.borderColorLR}
             onSelect={(hex) => setState((s) => ({ ...s, borderColorLR: hex }))}
+            deselectedValue={state.courtInteriorColor}
             columns={4}
           />
         </div>
@@ -89,6 +93,7 @@ export default function Step2DesignOptions({ state, setState }: Props) {
             colors={SOLID_COLORS}
             selected={state.lineColor}
             onSelect={(hex) => setState((s) => ({ ...s, lineColor: hex }))}
+            deselectedValue="#000000"
           />
         </div>
       </Accordion>
@@ -104,6 +109,7 @@ export default function Step2DesignOptions({ state, setState }: Props) {
             colors={WOOD_STAINS}
             selected={state.courtInteriorColor}
             onSelect={(hex) => setState((s) => ({ ...s, courtInteriorColor: hex }))}
+            deselectedValue="#e6c79b"
             columns={4}
           />
           <div className="text-[10px] font-semibold tracking-wider text-gray-600">SOLID</div>
@@ -111,6 +117,7 @@ export default function Step2DesignOptions({ state, setState }: Props) {
             colors={SOLID_COLORS}
             selected={state.courtInteriorColor}
             onSelect={(hex) => setState((s) => ({ ...s, courtInteriorColor: hex }))}
+            deselectedValue="#e6c79b"
           />
         </div>
       </Accordion>
@@ -123,6 +130,15 @@ export default function Step2DesignOptions({ state, setState }: Props) {
             onSelect={(hex) => setState((s) => ({ ...s, keyColor: hex }))}
             deselectedValue={state.courtInteriorColor}
           />
+          {state.keyColor !== state.courtInteriorColor && (
+            <button
+              type="button"
+              onClick={() => setState((s) => ({ ...s, keyColor: s.courtInteriorColor }))}
+              className="text-[10px] text-gray-500 underline hover:text-gray-800"
+            >
+              CLEAR FILL
+            </button>
+          )}
         </div>
       </Accordion>
 
@@ -131,13 +147,22 @@ export default function Step2DesignOptions({ state, setState }: Props) {
         isOpen={!!open.keyArchC}
         onToggle={() => toggle('keyArchC')}
       >
-        <div className="p-3">
+        <div className="p-3 space-y-2">
           <ColorGrid
             colors={SOLID_COLORS}
             selected={state.keyArchColor}
             onSelect={(hex) => setState((s) => ({ ...s, keyArchColor: hex }))}
             deselectedValue={state.courtInteriorColor}
           />
+          {state.keyArchColor !== state.courtInteriorColor && (
+            <button
+              type="button"
+              onClick={() => setState((s) => ({ ...s, keyArchColor: s.courtInteriorColor }))}
+              className="text-[10px] text-gray-500 underline hover:text-gray-800"
+            >
+              CLEAR FILL
+            </button>
+          )}
         </div>
       </Accordion>
 
@@ -146,13 +171,22 @@ export default function Step2DesignOptions({ state, setState }: Props) {
         isOpen={!!open.threeFill}
         onToggle={() => toggle('threeFill')}
       >
-        <div className="p-3">
+        <div className="p-3 space-y-2">
           <ColorGrid
             colors={SOLID_COLORS}
             selected={state.threePointFillColor}
             onSelect={(hex) => setState((s) => ({ ...s, threePointFillColor: hex }))}
             deselectedValue={state.courtInteriorColor}
           />
+          {state.threePointFillColor !== state.courtInteriorColor && (
+            <button
+              type="button"
+              onClick={() => setState((s) => ({ ...s, threePointFillColor: s.courtInteriorColor }))}
+              className="text-[10px] text-gray-500 underline hover:text-gray-800"
+            >
+              CLEAR FILL
+            </button>
+          )}
         </div>
       </Accordion>
 
